@@ -27,10 +27,14 @@ class _AboutBookState extends State<AboutBook> {
   }
 
   bool more = false;
-  String aboutPreface = "- God has made a great offer to mankind: His whole being and all that He is. Beyond the Creator - creation relationship is this offer of 'sonship'...to inherit God! -";
-  String aboutAuthor = 'GBILE AKANNI is a widely travelled teacher of God\'s word. He runs several ministerial trainings combined with regular radio and itinerant preaching. He presently lives in Gboko with his wife and four children. Brother Gbile has authored quite a number of publication including "God\'s pattern for christian services": "Tapping God\'s Resources for Life and Ministering".';
-  String aboutBook = "BECOMING LIKE JESUS is a short treatise on DISCIPLESHIP. It mirrors several years of carefully built convictions of God's ultimate goal for manking\n\nThe road to genuine and abundant living must wind through GOLGOTHA with an ever increasing conformity with the man of CALVARY. JESUS CHRIST, the Lord. Satan and the contemporary world would have backmailed this way and made it very unpopular. Many sincere Christians have been subtly diverted to seek victory and fulfillment through several shortcuts; sometimes with seeming 'breakthroughs'.\n\nThere is neither true prosperity nor abundant life for any man who is till under the rule of the natural SELFLIFE! God's unequivocal condition to man is:\n'...let him deny himself; and take up his cross and follow Me.'";
-  String whoseAbout = "Christians who really want to become like Jesus and get this key to abundant living. It is God's way to entering heaven.";
+  String aboutPreface =
+      "- God has made a great offer to mankind: His whole being and all that He is. Beyond the Creator - creation relationship is this offer of 'sonship'...to inherit God! -";
+  String aboutAuthor =
+      'GBILE AKANNI is a widely travelled teacher of God\'s word. He runs several ministerial trainings combined with regular radio and itinerant preaching. He presently lives in Gboko with his wife and four children. Brother Gbile has authored quite a number of publication including "God\'s pattern for christian services": "Tapping God\'s Resources for Life and Ministering".';
+  String aboutBook =
+      "BECOMING LIKE JESUS is a short treatise on DISCIPLESHIP. It mirrors several years of carefully built convictions of God's ultimate goal for manking\n\nThe road to genuine and abundant living must wind through GOLGOTHA with an ever increasing conformity with the man of CALVARY. JESUS CHRIST, the Lord. Satan and the contemporary world would have backmailed this way and made it very unpopular. Many sincere Christians have been subtly diverted to seek victory and fulfillment through several shortcuts; sometimes with seeming 'breakthroughs'.\n\nThere is neither true prosperity nor abundant life for any man who is till under the rule of the natural SELFLIFE! God's unequivocal condition to man is:\n'...let him deny himself; and take up his cross and follow Me.'";
+  String whoseAbout =
+      "Christians who really want to become like Jesus and get this key to abundant living. It is God's way to entering heaven.";
 
   List<String> chapters = [
     'Dedication',
@@ -54,29 +58,28 @@ class _AboutBookState extends State<AboutBook> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        leading: IconButton(
-            onPressed: () {
-              GoRouter.of(context).pop();
-            },
-            icon: const Icon(
-              Icons.arrow_back_ios_new_outlined,
-              size: 17,
-            )),
-        title: const Align(
-          alignment: Alignment.center,
-          child: Text(
-            'Becoming like Jesus',
-            style: TextStyle(
-              fontWeight: FontWeight.bold,
-              fontSize: 16,
-              fontFamily: 'Playfair'
+        appBar: AppBar(
+          leading: IconButton(
+              onPressed: () {
+                GoRouter.of(context).pop();
+              },
+              icon: const Icon(
+                Icons.arrow_back_ios_new_outlined,
+                size: 17,
+              )),
+          title: const Align(
+            alignment: Alignment.center,
+            child: Text(
+              'Becoming like Jesus',
+              style: TextStyle(
+                  fontWeight: FontWeight.bold,
+                  fontSize: 16,
+                  fontFamily: 'Playfair'),
             ),
           ),
         ),
-      ),
-      body: SingleChildScrollView(
-        child: Padding(
+        body: SingleChildScrollView(
+            child: Padding(
           padding: const EdgeInsets.all(30.0),
           child: Column(
             children: [
@@ -85,16 +88,15 @@ class _AboutBookState extends State<AboutBook> {
                   width: 130,
                   height: 200,
                   decoration: const BoxDecoration(
-                    image: DecorationImage(
-                      fit: BoxFit.fill,
-                      image: AssetImage('assets/images/bookPicture.png'),
-                    )
-                  ),
+                      image: DecorationImage(
+                    fit: BoxFit.fill,
+                    image: AssetImage('assets/images/bookPicture.png'),
+                  )),
                 ),
               ),
               const SizedBox(height: 15),
               ElevatedButton(
-                onPressed: (){},
+                onPressed: () {},
                 style: ElevatedButton.styleFrom(
                   elevation: 0,
                   backgroundColor: Theme.of(context).primaryColor,
@@ -108,20 +110,20 @@ class _AboutBookState extends State<AboutBook> {
                   children: [
                     Text(
                       'N 1,000',
-                       style: TextStyle(
-                        fontWeight: FontWeight.w300,
-                        fontSize: 20.0,
-                        color: Colors.white
-                      ),
+                      style: TextStyle(
+                          fontWeight: FontWeight.w300,
+                          fontSize: 20.0,
+                          color: Colors.white),
                     ),
-                    SizedBox(width: 20,),
+                    SizedBox(
+                      width: 20,
+                    ),
                     Text(
                       '|',
-                       style: TextStyle(
-                        fontWeight: FontWeight.w300,
-                        fontSize: 20.0,
-                        color: Colors.white
-                      ),
+                      style: TextStyle(
+                          fontWeight: FontWeight.w300,
+                          fontSize: 20.0,
+                          color: Colors.white),
                     ),
                     SizedBox(width: 20),
                     Icon(
@@ -129,20 +131,21 @@ class _AboutBookState extends State<AboutBook> {
                       color: Colors.white,
                       size: 20,
                     ),
-                    SizedBox(width: 10,),
-                    Text(
-                      'Add to Cart',
-                      style: TextStyle(
-                        fontWeight: FontWeight.w300,
-                        fontSize: 20.0,
-                        color: Colors.white
-                      ),
-                      textAlign: TextAlign.start
+                    SizedBox(
+                      width: 10,
                     ),
+                    Text('Add to Cart',
+                        style: TextStyle(
+                            fontWeight: FontWeight.w300,
+                            fontSize: 20.0,
+                            color: Colors.white),
+                        textAlign: TextAlign.start),
                   ],
                 ),
               ),
-              const SizedBox(height: 15,),
+              const SizedBox(
+                height: 15,
+              ),
               Align(
                 alignment: Alignment.centerLeft,
                 child: Column(
@@ -163,7 +166,9 @@ class _AboutBookState extends State<AboutBook> {
                         color: Theme.of(context).disabledColor,
                       ),
                     ),
-                    const SizedBox(height: 10,),
+                    const SizedBox(
+                      height: 10,
+                    ),
                     Text(
                       aboutPreface,
                       style: const TextStyle(
@@ -172,9 +177,11 @@ class _AboutBookState extends State<AboutBook> {
                       ),
                       maxLines: 5,
                     ),
-                    const SizedBox(height: 10,),
+                    const SizedBox(
+                      height: 10,
+                    ),
                     Divider(
-                      thickness: 1, 
+                      thickness: 1,
                       color: Theme.of(context).disabledColor.withOpacity(0.4),
                     ),
                     Row(
@@ -182,12 +189,14 @@ class _AboutBookState extends State<AboutBook> {
                       children: [
                         Row(
                           crossAxisAlignment: CrossAxisAlignment.start,
-                          children: List.generate(5, (index){
+                          children: List.generate(5, (index) {
                             return IconButton(
                               onPressed: () => _onStarPressed(index),
                               icon: Icon(
                                 Icons.star,
-                                color: stars[index] ? Colors.orange.withOpacity(0.5) :  Colors.grey.withOpacity(0.2),
+                                color: stars[index]
+                                    ? Colors.orange.withOpacity(0.5)
+                                    : Colors.grey.withOpacity(0.2),
                                 size: 30,
                               ),
                             );
@@ -201,11 +210,14 @@ class _AboutBookState extends State<AboutBook> {
                         )
                       ],
                     ),
-                    const SizedBox(height: 10,),
+                    const SizedBox(
+                      height: 10,
+                    ),
                     Align(
                       alignment: Alignment.centerRight,
                       child: TextButton(
-                        onPressed: () => GoRouter.of(context).go('${LivingSeedAppRouter.publicationsPath}/${LivingSeedAppRouter.aboutBookPath}/${LivingSeedAppRouter.reviewsPath}'),
+                        onPressed: () => GoRouter.of(context).go(
+                            '${LivingSeedAppRouter.publicationsPath}/${LivingSeedAppRouter.aboutBookPath}/${LivingSeedAppRouter.reviewsPath}'),
                         child: Text(
                           'See Reviews',
                           style: TextStyle(
@@ -216,58 +228,62 @@ class _AboutBookState extends State<AboutBook> {
                       ),
                     ),
                     Divider(
-                      thickness: 1, 
+                      thickness: 1,
                       color: Theme.of(context).disabledColor.withOpacity(0.4),
                     ),
-                    const SizedBox(height: 20,),
-                    const Text(
-                      "What's it about?",
-                      style: TextStyle(
-                        fontWeight: FontWeight.bold,
-                        fontSize: 20,
-                      )
+                    const SizedBox(
+                      height: 20,
                     ),
-                    const SizedBox(height: 10,),
+                    const Text("What's it about?",
+                        style: TextStyle(
+                          fontWeight: FontWeight.bold,
+                          fontSize: 20,
+                        )),
+                    const SizedBox(
+                      height: 10,
+                    ),
                     Text(
                       aboutBook,
                       style: const TextStyle(
                         fontWeight: FontWeight.w500,
                       ),
                       maxLines: more == false ? 5 : 30,
+                      textAlign: TextAlign.justify,
                     ),
                     Align(
                       alignment: Alignment.centerRight,
                       child: TextButton(
-                        onPressed: (){
+                        onPressed: () {
                           setState(() {
                             more = !more;
                           });
                         },
                         child: Text(
-                          more == false ? 'see more...': 'see less...',
+                          more == false ? 'see more...' : 'see less...',
                           style: TextStyle(
-                            color: Theme.of(context).primaryColor,
-                            fontSize: 13
-                          ),
+                              color: Theme.of(context).primaryColor,
+                              fontSize: 13),
                         ),
                       ),
                     ),
-                    const SizedBox(height: 20,),
-                    const Text(
-                      "Who's it about?",
-                      style: TextStyle(
-                        fontWeight: FontWeight.bold,
-                        fontSize: 20,
-                      )
+                    const SizedBox(
+                      height: 20,
                     ),
-                    const SizedBox(height: 10,),
-                    Text(
-                      whoseAbout,
-                      style: const TextStyle(
-                        fontWeight: FontWeight.w500,
-                      )
+                    const Text("Who's it about?",
+                        style: TextStyle(
+                          fontWeight: FontWeight.bold,
+                          fontSize: 20,
+                        )),
+                    const SizedBox(
+                      height: 10,
                     ),
-                    const SizedBox(height: 25,),
+                    Text(whoseAbout,
+                        style: const TextStyle(
+                          fontWeight: FontWeight.w500,
+                        )),
+                    const SizedBox(
+                      height: 25,
+                    ),
                     const Text(
                       'Have 12 Chapters',
                       style: TextStyle(
@@ -275,78 +291,87 @@ class _AboutBookState extends State<AboutBook> {
                         fontSize: 20,
                       ),
                     ),
-                    const SizedBox(height: 10,),
+                    const SizedBox(
+                      height: 10,
+                    ),
                     ListView.builder(
                       itemCount: chapters.length,
                       shrinkWrap: true,
                       itemBuilder: ((context, index) {
                         return Container(
                           margin: const EdgeInsets.all(7),
-                            decoration: BoxDecoration(
-                              border: Border.all(
-                                color: Theme.of(context).brightness == Brightness.dark
-                                    ? Colors.white
-                                    : Theme.of(context).disabledColor.withOpacity(0.5),
-                              ),
-                              borderRadius: BorderRadius.circular(10),
+                          decoration: BoxDecoration(
+                            border: Border.all(
+                              color: Theme.of(context).brightness ==
+                                      Brightness.dark
+                                  ? Colors.white
+                                  : Theme.of(context)
+                                      .disabledColor
+                                      .withOpacity(0.5),
                             ),
-                            child: Padding(
-                              padding: const EdgeInsets.symmetric(vertical: 13.0, horizontal: 10),
-                              child: Text(
-                                chapters[index],
-                                style: const TextStyle(
-                                  fontWeight: FontWeight.w500,
-                                  fontSize: 17
-                                ),
-                              ),
+                            borderRadius: BorderRadius.circular(10),
+                          ),
+                          child: Padding(
+                            padding: const EdgeInsets.symmetric(
+                                vertical: 13.0, horizontal: 10),
+                            child: Text(
+                              chapters[index],
+                              style: const TextStyle(
+                                  fontWeight: FontWeight.w500, fontSize: 17),
                             ),
-                          );
-                        }
+                          ),
+                        );
+                      }),
+                    ),
+                    const SizedBox(
+                      height: 20,
+                    ),
+                    const Text("Who is the author?",
+                        style: TextStyle(
+                          fontWeight: FontWeight.bold,
+                          fontSize: 20,
+                        ),
+                        textAlign: TextAlign.justify,
                       ),
+                    const SizedBox(
+                      height: 10,
                     ),
-                    const SizedBox(height: 20,),
-                    const Text(
-                      "Who is the author?",
-                      style: TextStyle(
-                        fontWeight: FontWeight.bold,
-                        fontSize: 20,
-                      )
-                    ),
-                    const SizedBox(height: 10,),
                     Text(
                       aboutAuthor,
                       style: const TextStyle(
-                        fontWeight: FontWeight.w500,
-                      )
+                          fontWeight: FontWeight.w500,
+                        )),
+                    const SizedBox(
+                      height: 25,
                     ),
-                    const SizedBox(height: 25,),
-                    const Text(
-                      "Recommended for you",
-                      style: TextStyle(
-                        fontWeight: FontWeight.bold,
-                        fontSize: 20,
-                      )
+                    const Text("Recommended for you",
+                        style: TextStyle(
+                          fontWeight: FontWeight.bold,
+                          fontSize: 20,
+                        )),
+                    const SizedBox(
+                      height: 20,
                     ),
-                    const SizedBox(height: 20,),
                     const SingleChildScrollView(
-                    scrollDirection: Axis.horizontal,
-                    child: Row(
-                      children: [
-                        BooksPage(),
-                        SizedBox(width: 10,),
-                        BooksPage(),
-                        SizedBox(width: 10,),
-                        BooksPage(),
-                      ],
-                    )
-                  ),
+                        scrollDirection: Axis.horizontal,
+                        child: Row(
+                          children: [
+                            BooksPage(),
+                            SizedBox(
+                              width: 10,
+                            ),
+                            BooksPage(),
+                            SizedBox(
+                              width: 10,
+                            ),
+                            BooksPage(),
+                          ],
+                        )),
                   ],
                 ),
               )
             ],
           ),
-        )
-      )
-    );
+        )));
   }
 }

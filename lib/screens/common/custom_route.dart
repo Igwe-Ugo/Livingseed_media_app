@@ -12,16 +12,23 @@ class LivingSeedAppRouter {
   static final LivingSeedAppRouter _instance = LivingSeedAppRouter._internal();
   static LivingSeedAppRouter get instance => _instance;
   static late final GoRouter router;
-  static final GlobalKey<NavigatorState> parentNavigatorKey = GlobalKey<NavigatorState>();
-  static final GlobalKey<NavigatorState> homeTabNavigatorKey = GlobalKey<NavigatorState>();
-  static final GlobalKey<NavigatorState> booksTabNavigationKey = GlobalKey<NavigatorState>();
-  static final GlobalKey<NavigatorState> messagesTabNavigationKey = GlobalKey<NavigatorState>();
-  static final GlobalKey<NavigatorState> accountTabNavigationKey = GlobalKey<NavigatorState>();
-  BuildContext get context => router.routerDelegate.navigatorKey.currentContext!;
+  static final GlobalKey<NavigatorState> parentNavigatorKey =
+      GlobalKey<NavigatorState>();
+  static final GlobalKey<NavigatorState> homeTabNavigatorKey =
+      GlobalKey<NavigatorState>();
+  static final GlobalKey<NavigatorState> booksTabNavigationKey =
+      GlobalKey<NavigatorState>();
+  static final GlobalKey<NavigatorState> messagesTabNavigationKey =
+      GlobalKey<NavigatorState>();
+  static final GlobalKey<NavigatorState> accountTabNavigationKey =
+      GlobalKey<NavigatorState>();
+  BuildContext get context =>
+      router.routerDelegate.navigatorKey.currentContext!;
   GoRouterDelegate get routerDelegate => router.routerDelegate;
-  GoRouteInformationParser get routeInformationParser => router.routeInformationParser;
+  GoRouteInformationParser get routeInformationParser =>
+      router.routeInformationParser;
 
-  factory LivingSeedAppRouter(){
+  factory LivingSeedAppRouter() {
     return _instance;
   }
 
@@ -39,8 +46,9 @@ class LivingSeedAppRouter {
   static const String videoMessagesPath = 'video_messages';
   static const String audioScreenPath = 'audio_screen';
   static const String changePasswordPath = 'change_password';
+  static const String notificationPath = 'notifications';
 
-  LivingSeedAppRouter._internal(){
+  LivingSeedAppRouter._internal() {
     final routes = <RouteBase>[
       GoRoute(
         path: loginPath,
@@ -51,94 +59,107 @@ class LivingSeedAppRouter {
         builder: (context, state) => const LivingSeedSignUp(),
       ),
       StatefulShellRoute.indexedStack(
-        parentNavigatorKey: parentNavigatorKey,
-        builder: (context, state, navigationShell){
-          return LivingSeedNavBar(navigationShell: navigationShell);
-        },
-        branches: <StatefulShellBranch>[
-          StatefulShellBranch(
-            navigatorKey: homeTabNavigatorKey,
-            routes: <RouteBase>[
-              GoRoute(
-                path: homePath,
-                builder: (context, state) => const HomePage()
-              ),
-            ]
-          ),
-          StatefulShellBranch(
-            navigatorKey: booksTabNavigationKey,
-            routes: <RouteBase>[
-              GoRoute(
-                path: publicationsPath,
-                builder: (context, state) => const PublicationsPage(),
-                routes: [
+          parentNavigatorKey: parentNavigatorKey,
+          builder: (context, state, navigationShell) {
+            return LivingSeedNavBar(navigationShell: navigationShell);
+          },
+          branches: <StatefulShellBranch>[
+            StatefulShellBranch(
+                navigatorKey: homeTabNavigatorKey,
+                routes: <RouteBase>[
                   GoRoute(
-                    path: aboutBookPath,
-                    builder: (context, state) => const AboutBook(),
-                    routes: [
-                      GoRoute(
-                        path: reviewsPath,
-                        builder: (context, state) => const Reviews(),
-                        routes: [
-                          GoRoute(
-                            path: writeReviewPath,
-                            builder: (context, state) => const WriteReview(),
-                          ),
-                        ]
-                      ),
-                    ]
-                  ),
-                ]
-              ),
-            ]
-          ),
-          StatefulShellBranch(
-            navigatorKey: messagesTabNavigationKey,
-            routes: <RouteBase>[
-              GoRoute(
-                path: messagesPath,
-                builder: (context, state) => const MessagesPage(),
-                routes: [
+                      path: homePath,
+                      builder: (context, state) => const HomePage(),
+                      routes: [
+                        GoRoute(
+                            path: notificationPath,
+                            builder: (context, state) => const Notifications(
+                                  index: 1,
+                                ))
+                      ]),
+                ]),
+            StatefulShellBranch(
+                navigatorKey: booksTabNavigationKey,
+                routes: <RouteBase>[
                   GoRoute(
-                    path: videoMessagesPath,
-                    builder: (context, state) => const VideoMessages()
-                  ),
+                      path: publicationsPath,
+                      builder: (context, state) => const PublicationsPage(),
+                      routes: [
+                        GoRoute(
+                            path: notificationPath,
+                            builder: (context, state) => const Notifications(
+                                  index: 2,
+                                )),
+                        GoRoute(
+                            path: aboutBookPath,
+                            builder: (context, state) => const AboutBook(),
+                            routes: [
+                              GoRoute(
+                                  path: reviewsPath,
+                                  builder: (context, state) => const Reviews(),
+                                  routes: [
+                                    GoRoute(
+                                      path: writeReviewPath,
+                                      builder: (context, state) =>
+                                          const WriteReview(),
+                                    ),
+                                  ]),
+                            ]),
+                      ]),
+                ]),
+            StatefulShellBranch(
+                navigatorKey: messagesTabNavigationKey,
+                routes: <RouteBase>[
                   GoRoute(
-                    path: audioScreenPath,
-                    builder: (context, state) {
-                      final audioSongs = state.extra as AudioMessage;
-                      return AudioScreen(audioSongs: audioSongs,);
-                    },
-                  ),
-                ]
-              ),
-            ]
-          ),
-          StatefulShellBranch(
-            navigatorKey: accountTabNavigationKey,
-            routes: <RouteBase>[
-              GoRoute(
-                path: accountPath,
-                builder: (context, state) => const AccountPage(),
-                routes: [
+                      path: messagesPath,
+                      builder: (context, state) => const MessagesPage(),
+                      routes: [
+                        GoRoute(
+                            path: notificationPath,
+                            builder: (context, state) => const Notifications(
+                                  index: 3,
+                                )),
+                        GoRoute(
+                            path: videoMessagesPath,
+                            builder: (context, state) => const VideoMessages()),
+                        GoRoute(
+                          path: audioScreenPath,
+                          builder: (context, state) {
+                            final audioSongs = state.extra as AudioMessage;
+                            return AudioScreen(
+                              audioSongs: audioSongs,
+                            );
+                          },
+                        ),
+                      ]),
+                ]),
+            StatefulShellBranch(
+                navigatorKey: accountTabNavigationKey,
+                routes: <RouteBase>[
                   GoRoute(
-                    path: cartPath,
-                    builder: (context, state) => const Cart(),
-                  ),
-                  GoRoute(
-                    path: editAccountPath,
-                    builder: (context, state) => const EditProfile(),
-                  ),
-                  GoRoute(
-                    path: changePasswordPath,
-                    builder: (context, state) => const ChangePassword(),
-                  )
-                ]
-              ),
-            ]
-          ),
-        ]
-      )
+                      path: accountPath,
+                      builder: (context, state) => const AccountPage(),
+                      routes: [
+                        GoRoute(
+                            path: notificationPath,
+                            builder: (context, state) => const Notifications(
+                                  index: 4,
+                                )),
+                        GoRoute(
+                          path: cartPath,
+                          builder: (context, state) => const Cart(),
+                        ),
+                        GoRoute(
+                          path: editAccountPath,
+                          builder: (context, state) => const Profile(),
+                        ),
+                        GoRoute(
+                          path: changePasswordPath,
+                          builder: (context, state) => const ChangePassword(),
+                        )
+                      ]),
+                ]),
+          ])
     ];
 
     router = GoRouter(

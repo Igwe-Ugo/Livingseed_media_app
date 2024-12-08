@@ -27,13 +27,15 @@ class _ChangePasswordState extends State<ChangePassword> {
             size: 17,
           ),
         ),
-        title: const Text(
+        title: Text(
           'Change Password',
           style: TextStyle(
-            fontWeight: FontWeight.bold,
-            fontSize: 16,
-            fontFamily: 'playfair'
-          ),
+              fontWeight: FontWeight.bold,
+              fontSize: 16,
+              fontFamily: 'playfair',
+              color: Theme.of(context).brightness == Brightness.dark
+                  ? Colors.white
+                  : Colors.black),
         ),
       ),
       persistentFooterButtons: [
@@ -50,15 +52,13 @@ class _ChangePasswordState extends State<ChangePassword> {
           child: Padding(
             padding: const EdgeInsets.symmetric(vertical: 15.0),
             child: Center(
-              child: Text(
-                'Change Password',
-                style: TextStyle(
-                  fontWeight: FontWeight.w700,
-                  fontSize: 17.0,
-                  color: Theme.of(context).brightness == Brightness.dark ? Colors.white : Colors.black
-                )
-              )
-            ),
+                child: Text('Change Password',
+                    style: TextStyle(
+                        fontWeight: FontWeight.w700,
+                        fontSize: 17.0,
+                        color: Theme.of(context).brightness == Brightness.dark
+                            ? Colors.white
+                            : Colors.black))),
           ),
         )
       ],
@@ -66,7 +66,7 @@ class _ChangePasswordState extends State<ChangePassword> {
         child: Form(
           key: _formKey,
           child: Padding(
-            padding: const EdgeInsets.all(10),
+            padding: const EdgeInsets.all(20),
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
@@ -77,7 +77,9 @@ class _ChangePasswordState extends State<ChangePassword> {
                     fontWeight: FontWeight.bold,
                   ),
                 ),
-                const SizedBox(height: 8,),
+                const SizedBox(
+                  height: 8,
+                ),
                 TextFormField(
                   controller: _oldPasswordController,
                   validator: (value) {
@@ -88,20 +90,22 @@ class _ChangePasswordState extends State<ChangePassword> {
                   },
                   decoration: InputDecoration(
                     errorStyle: const TextStyle(
-                      fontSize: 15,
-                      fontWeight: FontWeight.w700
-                    ),
+                        fontSize: 15, fontWeight: FontWeight.w700),
                     hintText: 'Old password',
                     border: OutlineInputBorder(
-                      borderSide: BorderSide(color: Theme.of(context).highlightColor)
-                    ),
+                        borderSide: BorderSide(
+                            color: Theme.of(context).highlightColor)),
                     hintStyle: TextStyle(
-                      color: Theme.of(context).brightness == Brightness.dark ? Colors.white : Colors.black,
+                      color: Theme.of(context).brightness == Brightness.dark
+                          ? Colors.white
+                          : Colors.black,
                       fontSize: _textFont,
                     ),
                   ),
                 ),
-                const SizedBox(height: 16,),
+                const SizedBox(
+                  height: 16,
+                ),
                 Text(
                   'Enter new password',
                   style: TextStyle(
@@ -109,7 +113,9 @@ class _ChangePasswordState extends State<ChangePassword> {
                     fontWeight: FontWeight.bold,
                   ),
                 ),
-                const SizedBox(height: 8,),
+                const SizedBox(
+                  height: 8,
+                ),
                 TextFormField(
                   controller: _newPasswordController,
                   validator: (value) {
@@ -123,20 +129,22 @@ class _ChangePasswordState extends State<ChangePassword> {
                   },
                   decoration: InputDecoration(
                     errorStyle: const TextStyle(
-                      fontSize: 15,
-                      fontWeight: FontWeight.w700
-                    ),
+                        fontSize: 15, fontWeight: FontWeight.w700),
                     hintText: 'New password',
                     border: OutlineInputBorder(
-                      borderSide: BorderSide(color: Theme.of(context).highlightColor)
-                    ),
+                        borderSide: BorderSide(
+                            color: Theme.of(context).highlightColor)),
                     hintStyle: TextStyle(
-                      color: Theme.of(context).brightness == Brightness.dark ? Colors.white : Colors.black,
+                      color: Theme.of(context).brightness == Brightness.dark
+                          ? Colors.white
+                          : Colors.black,
                       fontSize: _textFont,
                     ),
                   ),
                 ),
-                const SizedBox(height: 16,),
+                const SizedBox(
+                  height: 16,
+                ),
                 Text(
                   'Confirm new password',
                   style: TextStyle(
@@ -144,7 +152,9 @@ class _ChangePasswordState extends State<ChangePassword> {
                     fontWeight: FontWeight.bold,
                   ),
                 ),
-                const SizedBox(height: 8,),
+                const SizedBox(
+                  height: 8,
+                ),
                 TextFormField(
                   controller: _confirmNewPasswordController,
                   validator: (value) {
@@ -158,15 +168,15 @@ class _ChangePasswordState extends State<ChangePassword> {
                   },
                   decoration: InputDecoration(
                     errorStyle: const TextStyle(
-                      fontSize: 15,
-                      fontWeight: FontWeight.w700
-                    ),
+                        fontSize: 15, fontWeight: FontWeight.w700),
                     hintText: 'Confirm password',
                     border: OutlineInputBorder(
-                      borderSide: BorderSide(color: Theme.of(context).highlightColor)
-                    ),
+                        borderSide: BorderSide(
+                            color: Theme.of(context).highlightColor)),
                     hintStyle: TextStyle(
-                      color: Theme.of(context).brightness == Brightness.dark ? Colors.white : Colors.black,
+                      color: Theme.of(context).brightness == Brightness.dark
+                          ? Colors.white
+                          : Colors.black,
                       fontSize: _textFont,
                     ),
                   ),

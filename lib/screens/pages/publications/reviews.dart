@@ -282,7 +282,7 @@ class _ReviewsState extends State<Reviews> {
                       'reviewText': 'Normally, I would have ignored this book, but it cannot be ignored, such a captivating and truthful book',
                       'date': 'Dec 20, 2023',
                       'rateTitle': 'Heaven\'s gain',
-                      'reviewer':"Okorocha Eubechukwu",
+                      'reviewer':"Okorocha Ebubechukwu",
                     },
                     {
                       'reviewText': 'How I wish Christians everywhere can just take a bite out of this bread of life. Truly the Christian life would not be hard to emulate and imbibe in the society',
