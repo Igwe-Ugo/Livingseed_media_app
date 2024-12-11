@@ -198,7 +198,7 @@ class _AccountPageState extends State<AccountPage> {
                   ),
                   ListTile(
                     onTap: () {},
-                    leading: const Icon(Icons.admin_panel_settings_rounded),
+                    leading: const Icon(Iconsax.activity),
                     title: const Text(
                       'About Livng Seed',
                       style:
@@ -208,7 +208,7 @@ class _AccountPageState extends State<AccountPage> {
                   ),
                   ListTile(
                     onTap: () {},
-                    leading: const Icon(Icons.question_answer),
+                    leading: const Icon(Iconsax.message_question),
                     title: const Text(
                       'Ask a question',
                       style:

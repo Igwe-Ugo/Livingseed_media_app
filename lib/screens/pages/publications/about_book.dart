@@ -30,9 +30,9 @@ class _AboutBookState extends State<AboutBook> {
   String aboutPreface =
       "- God has made a great offer to mankind: His whole being and all that He is. Beyond the Creator - creation relationship is this offer of 'sonship'...to inherit God! -";
   String aboutAuthor =
-      'GBILE AKANNI is a widely travelled teacher of God\'s word. He runs several ministerial trainings combined with regular radio and itinerant preaching. He presently lives in Gboko with his wife and four children. Brother Gbile has authored quite a number of publication including "God\'s pattern for christian services": "Tapping God\'s Resources for Life and Ministering".';
+      'GBILE AKANNI is a widely travelled teacher of God\'s word. He runs several ministerial trainings combined with regular radio and itinerant preaching. He presently lives in Gboko with his wife and four children. Brother Gbile has authored quite a number of publication including "God\'s pattern for christian services", "Tapping God\'s Resources for Life and Ministering".';
   String aboutBook =
-      "BECOMING LIKE JESUS is a short treatise on DISCIPLESHIP. It mirrors several years of carefully built convictions of God's ultimate goal for manking\n\nThe road to genuine and abundant living must wind through GOLGOTHA with an ever increasing conformity with the man of CALVARY. JESUS CHRIST, the Lord. Satan and the contemporary world would have backmailed this way and made it very unpopular. Many sincere Christians have been subtly diverted to seek victory and fulfillment through several shortcuts; sometimes with seeming 'breakthroughs'.\n\nThere is neither true prosperity nor abundant life for any man who is till under the rule of the natural SELFLIFE! God's unequivocal condition to man is:\n'...let him deny himself; and take up his cross and follow Me.'";
+      "BECOMING LIKE JESUS is a short treatise on DISCIPLESHIP. It mirrors several years of carefully built convictions of God's ultimate goal for mankind\n\nThe road to genuine and abundant living must wind through GOLGOTHA with an ever increasing conformity with the man of CALVARY. JESUS CHRIST, the Lord. Satan and the contemporary world would have backmailed this way and made it very unpopular. Many sincere Christians have been subtly diverted to seek victory and fulfillment through several shortcuts; sometimes with seeming 'breakthroughs'.\n\nThere is neither true prosperity nor abundant life for any man who is till under the rule of the natural SELFLIFE! God's unequivocal condition to man is:\n'...let him deny himself; and take up his cross and follow Me.'";
   String whoseAbout =
       "Christians who really want to become like Jesus and get this key to abundant living. It is God's way to entering heaven.";
 
@@ -326,19 +326,19 @@ class _AboutBookState extends State<AboutBook> {
                     const SizedBox(
                       height: 20,
                     ),
-                    const Text("Who is the author?",
-                        style: TextStyle(
-                          fontWeight: FontWeight.bold,
-                          fontSize: 20,
-                        ),
-                        textAlign: TextAlign.justify,
+                    const Text(
+                      "Who is the author?",
+                      style: TextStyle(
+                        fontWeight: FontWeight.bold,
+                        fontSize: 20,
                       ),
+                      textAlign: TextAlign.justify,
+                    ),
                     const SizedBox(
                       height: 10,
                     ),
-                    Text(
-                      aboutAuthor,
-                      style: const TextStyle(
+                    Text(aboutAuthor,
+                        style: const TextStyle(
                           fontWeight: FontWeight.w500,
                         )),
                     const SizedBox(

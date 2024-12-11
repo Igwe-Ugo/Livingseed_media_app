@@ -18,6 +18,7 @@ class _LivingSeedNavBarState extends State<LivingSeedNavBar> {
       body: widget.navigationShell,
       bottomNavigationBar: NavigationBar(
         height: 70,
+        elevation: 0,
         selectedIndex: currentIndex,
         onDestinationSelected: (index) {
           widget.navigationShell.goBranch(

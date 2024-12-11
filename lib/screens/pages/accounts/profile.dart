@@ -47,6 +47,9 @@ class _ProfileState extends State<Profile> {
                       radius: 35,
                       child: Image.asset('assets/images/profile.png'),
                     ),
+                    const SizedBox(
+                      height: 20,
+                    ),
                     TextButton(
                         onPressed: () {},
                         child: Text(

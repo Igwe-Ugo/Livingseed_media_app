@@ -41,6 +41,7 @@ class LivingSeedAppRouter {
   static const String editAccountPath = 'editAccount';
   static const String loginPath = '/login';
   static const String signUpPath = '/signup';
+  static const String forgotPasswordPath = '/forgot_password';
   static const String reviewsPath = 'reviews';
   static const String writeReviewPath = 'write_review';
   static const String videoMessagesPath = 'video_messages';
@@ -57,6 +58,10 @@ class LivingSeedAppRouter {
       GoRoute(
         path: signUpPath,
         builder: (context, state) => const LivingSeedSignUp(),
+      ),
+      GoRoute(
+        path: forgotPasswordPath,
+        builder: (context, state) => const LivingSeedResetForgottenPassword(),
       ),
       StatefulShellRoute.indexedStack(
           parentNavigatorKey: parentNavigatorKey,
