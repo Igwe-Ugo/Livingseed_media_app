@@ -15,29 +15,28 @@ class _BooksPageState extends State<BooksPage> {
     return _bookGridView(context);
   }
 
-  Widget _bookGridView(BuildContext context){
+  Widget _bookGridView(BuildContext context) {
     return GestureDetector(
-      onTap: (){
-        GoRouter.of(context).go('${LivingSeedAppRouter.publicationsPath}/${LivingSeedAppRouter.aboutBookPath}');
+      onTap: () {
+        GoRouter.of(context).go(
+            '${LivingSeedAppRouter.publicationsPath}/${LivingSeedAppRouter.aboutBookPath}');
       },
       child: Container(
         margin: const EdgeInsets.all(2),
         width: 130,
         decoration: const BoxDecoration(
-          borderRadius: BorderRadius.all(Radius.circular(8))
-        ),
+            borderRadius: BorderRadius.all(Radius.circular(8))),
         child: Column(
           children: [
             Container(
               height: 170,
               decoration: BoxDecoration(
-                borderRadius: const BorderRadius.all(Radius.circular(7)),
-                color: Theme.of(context).canvasColor,
-                image: const DecorationImage(
-                  fit: BoxFit.fill,
-                  image: AssetImage('assets/images/bookPicture.png')
-                )
-              ),
+                  borderRadius: const BorderRadius.all(Radius.circular(7)),
+                  color: Theme.of(context).canvasColor,
+                  image: const DecorationImage(
+                      fit: BoxFit.fill,
+                      image:
+                          AssetImage('assets/images/becoming_like_jesus.png'))),
             ),
             const Padding(
               padding: EdgeInsets.all(2.0),
@@ -72,7 +71,9 @@ class _BooksPageState extends State<BooksPage> {
                               color: Colors.deepOrange,
                             ),
                           ),
-                          SizedBox(width: 5,),
+                          SizedBox(
+                            width: 5,
+                          ),
                           Icon(
                             Icons.star,
                             color: Colors.deepOrange,
@@ -101,7 +102,7 @@ class _BooksPageState extends State<BooksPage> {
                         ],
                       ),
                     ],
-                  ),               
+                  ),
                 ],
               ),
             )

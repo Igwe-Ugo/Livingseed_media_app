@@ -56,38 +56,35 @@ class _PublicationsPageState extends State<PublicationsPage> {
                     fontWeight: FontWeight.bold,
                   ),
                 ),
-                InkWell(
-                  onTap: () => GoRouter.of(context).go(
-                      '${LivingSeedAppRouter.publicationsPath}/${LivingSeedAppRouter.notificationPath}'),
-                  child: Padding(
-                    padding: const EdgeInsets.symmetric(horizontal: 8.0),
-                    child: InkWell(
-                      onTap: () {},
-                      child: Padding(
-                        padding: const EdgeInsets.all(10.0),
-                        child: Stack(
-                          alignment: AlignmentDirectional.bottomEnd,
-                          children: [
-                            const Icon(Iconsax.message),
-                            Container(
-                              padding: const EdgeInsets.all(4),
-                              decoration: BoxDecoration(
-                                color: Theme.of(context)
-                                    .primaryColor
-                                    .withOpacity(0.8),
-                                shape: BoxShape.circle,
-                              ),
-                              child: const Text(
-                                '2',
-                                style: TextStyle(
-                                    fontSize: 10.0,
-                                    fontWeight: FontWeight.bold,
-                                    color: Colors.white),
-                                textAlign: TextAlign.center,
-                              ),
+                Padding(
+                  padding: const EdgeInsets.symmetric(horizontal: 8.0),
+                  child: InkWell(
+                    onTap: () => GoRouter.of(context).go(
+                        '${LivingSeedAppRouter.publicationsPath}/${LivingSeedAppRouter.notificationPath}'),
+                    child: Padding(
+                      padding: const EdgeInsets.all(10.0),
+                      child: Stack(
+                        alignment: AlignmentDirectional.bottomEnd,
+                        children: [
+                          const Icon(Iconsax.message),
+                          Container(
+                            padding: const EdgeInsets.all(4),
+                            decoration: BoxDecoration(
+                              color: Theme.of(context)
+                                  .primaryColor
+                                  .withOpacity(0.8),
+                              shape: BoxShape.circle,
                             ),
-                          ],
-                        ),
+                            child: const Text(
+                              '2',
+                              style: TextStyle(
+                                  fontSize: 10.0,
+                                  fontWeight: FontWeight.bold,
+                                  color: Colors.white),
+                              textAlign: TextAlign.center,
+                            ),
+                          ),
+                        ],
                       ),
                     ),
                   ),
@@ -100,33 +97,24 @@ class _PublicationsPageState extends State<PublicationsPage> {
             Container(
               alignment: Alignment.center,
               decoration: BoxDecoration(
+                borderRadius: const BorderRadius.all(Radius.circular(12)),
                 border: Border.all(
                   color: Theme.of(context).brightness == Brightness.dark
                       ? Colors.white
-                      : Theme.of(context).disabledColor.withOpacity(0.5),
+                      : Theme.of(context).disabledColor.withOpacity(0.15),
                 ),
-                borderRadius: BorderRadius.circular(10),
               ),
-              child: TextFormField(
+              child: TextField(
                 controller: _searchController,
-                onChanged: (text) {},
-                textAlign: TextAlign.start,
                 decoration: InputDecoration(
-                  contentPadding: const EdgeInsets.fromLTRB(10, 10, 10, 0),
-                  hintText: 'Title, author, topic',
-                  prefixIcon: Icon(
-                    Icons.search,
-                    size: 30,
-                    color: Theme.of(context).disabledColor,
+                  filled: true,
+                  hintText: 'Search for title, authors, topics...',
+                  prefixIcon: const Icon(Iconsax.search_favorite_1),
+                  border: OutlineInputBorder(
+                    borderRadius: BorderRadius.circular(12),
+                    borderSide: BorderSide.none,
                   ),
-                  border: InputBorder.none,
-                  hintStyle: TextStyle(
-                    color: Theme.of(context).brightness == Brightness.dark
-                        ? Colors.white
-                        : Theme.of(context).disabledColor,
-                    fontSize: 20,
-                    fontFamily: 'Satoshi',
-                  ),
+                  fillColor: Theme.of(context).disabledColor.withOpacity(0.2),
                 ),
               ),
             ),

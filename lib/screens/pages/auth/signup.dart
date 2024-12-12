@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/svg.dart';
 import 'package:go_router/go_router.dart';
+import 'package:iconsax/iconsax.dart';
 import 'package:livingseed_media/screens/common/custom_route.dart';
 
 class LivingSeedSignUp extends StatefulWidget {
@@ -26,19 +28,19 @@ class _LivingSeedSignUpState extends State<LivingSeedSignUp> {
               height: 180,
               decoration: const BoxDecoration(
                 image: DecorationImage(
-                  image: AssetImage('assets/images/image.png'),
-                  fit: BoxFit.fill
-                ),
+                    image: AssetImage('assets/images/image.png'),
+                    fit: BoxFit.fill),
               ),
             ),
             Container(
               decoration: const BoxDecoration(
-                borderRadius: BorderRadius.only(topLeft: Radius.circular(10), topRight: Radius.circular(10))
-              ),
+                  borderRadius: BorderRadius.only(
+                      topLeft: Radius.circular(10),
+                      topRight: Radius.circular(10))),
               child: Form(
                 key: loginFormField,
                 child: Padding(
-                  padding: const EdgeInsets.fromLTRB(20,25,20,0),
+                  padding: const EdgeInsets.fromLTRB(20, 25, 20, 0),
                   child: Column(
                     children: [
                       const Align(
@@ -46,10 +48,9 @@ class _LivingSeedSignUpState extends State<LivingSeedSignUp> {
                         child: Text(
                           'Welcome!',
                           style: TextStyle(
-                            fontFamily: 'Playfair',
-                            fontSize: 30,
-                            fontWeight: FontWeight.bold
-                          ),
+                              fontFamily: 'Playfair',
+                              fontSize: 30,
+                              fontWeight: FontWeight.bold),
                         ),
                       ),
                       Align(
@@ -63,25 +64,30 @@ class _LivingSeedSignUpState extends State<LivingSeedSignUp> {
                           ),
                         ),
                       ),
-                      const SizedBox(height: 20,),
+                      const SizedBox(
+                        height: 20,
+                      ),
                       const Align(
                         alignment: Alignment.centerLeft,
                         child: Text(
                           'Fullname',
                           style: TextStyle(
-                            fontSize: 18,
-                            fontWeight: FontWeight.bold
-                          ),
+                              fontSize: 18, fontWeight: FontWeight.bold),
                         ),
                       ),
-                      const SizedBox(height: 7,),
+                      const SizedBox(
+                        height: 7,
+                      ),
                       Container(
                         alignment: Alignment.center,
                         decoration: BoxDecoration(
                           border: Border.all(
-                            color: Theme.of(context).brightness == Brightness.dark
-                                ? Colors.white
-                                : Theme.of(context).disabledColor.withOpacity(0.15),
+                            color:
+                                Theme.of(context).brightness == Brightness.dark
+                                    ? Colors.white
+                                    : Theme.of(context)
+                                        .disabledColor
+                                        .withOpacity(0.15),
                           ),
                           borderRadius: BorderRadius.circular(8),
                         ),
@@ -90,40 +96,51 @@ class _LivingSeedSignUpState extends State<LivingSeedSignUp> {
                           controller: emailController,
                           decoration: InputDecoration(
                             filled: true,
-                            fillColor: Theme.of(context).disabledColor.withOpacity(0.15),
-                            prefixIcon: const Icon(Icons.text_fields_outlined, size: 17,),
-                            errorStyle: const TextStyle(
-                              fontSize: 15,
-                              fontWeight: FontWeight.w700
+                            fillColor: Theme.of(context)
+                                .disabledColor
+                                .withOpacity(0.15),
+                            prefixIcon: const Icon(
+                              Icons.text_fields_outlined,
+                              size: 17,
                             ),
+                            errorStyle: const TextStyle(
+                                fontSize: 15, fontWeight: FontWeight.w700),
                             hintText: 'Enter fullname',
                             border: InputBorder.none,
                             hintStyle: TextStyle(
-                              color: Theme.of(context).brightness == Brightness.dark ? Colors.white : Theme.of(context).disabledColor,
+                              color: Theme.of(context).brightness ==
+                                      Brightness.dark
+                                  ? Colors.white
+                                  : Theme.of(context).disabledColor,
                               fontSize: 17,
                             ),
                           ),
                         ),
                       ),
-                      const SizedBox(height: 20,),
+                      const SizedBox(
+                        height: 20,
+                      ),
                       const Align(
                         alignment: Alignment.centerLeft,
                         child: Text(
                           'Email',
                           style: TextStyle(
-                            fontSize: 18,
-                            fontWeight: FontWeight.bold
-                          ),
+                              fontSize: 18, fontWeight: FontWeight.bold),
                         ),
                       ),
-                      const SizedBox(height: 7,),
+                      const SizedBox(
+                        height: 7,
+                      ),
                       Container(
                         alignment: Alignment.center,
                         decoration: BoxDecoration(
                           border: Border.all(
-                            color: Theme.of(context).brightness == Brightness.dark
-                                ? Colors.white
-                                : Theme.of(context).disabledColor.withOpacity(0.15),
+                            color:
+                                Theme.of(context).brightness == Brightness.dark
+                                    ? Colors.white
+                                    : Theme.of(context)
+                                        .disabledColor
+                                        .withOpacity(0.15),
                           ),
                           borderRadius: BorderRadius.circular(8),
                         ),
@@ -132,40 +149,51 @@ class _LivingSeedSignUpState extends State<LivingSeedSignUp> {
                           controller: emailController,
                           decoration: InputDecoration(
                             filled: true,
-                            fillColor: Theme.of(context).disabledColor.withOpacity(0.15),
-                            prefixIcon: const Icon(Icons.email_outlined, size: 17,),
-                            errorStyle: const TextStyle(
-                              fontSize: 15,
-                              fontWeight: FontWeight.w700
+                            fillColor: Theme.of(context)
+                                .disabledColor
+                                .withOpacity(0.15),
+                            prefixIcon: const Icon(
+                              Icons.email_outlined,
+                              size: 17,
                             ),
+                            errorStyle: const TextStyle(
+                                fontSize: 15, fontWeight: FontWeight.w700),
                             hintText: 'Enter email',
                             border: InputBorder.none,
                             hintStyle: TextStyle(
-                              color: Theme.of(context).brightness == Brightness.dark ? Colors.white : Theme.of(context).disabledColor,
+                              color: Theme.of(context).brightness ==
+                                      Brightness.dark
+                                  ? Colors.white
+                                  : Theme.of(context).disabledColor,
                               fontSize: 17,
                             ),
                           ),
                         ),
                       ),
-                      const SizedBox(height: 20,),
+                      const SizedBox(
+                        height: 20,
+                      ),
                       const Align(
                         alignment: Alignment.centerLeft,
                         child: Text(
                           'Password',
                           style: TextStyle(
-                            fontSize: 18,
-                            fontWeight: FontWeight.bold
-                          ),
+                              fontSize: 18, fontWeight: FontWeight.bold),
                         ),
                       ),
-                      const SizedBox(height: 7,),
+                      const SizedBox(
+                        height: 7,
+                      ),
                       Container(
                         alignment: Alignment.center,
                         decoration: BoxDecoration(
                           border: Border.all(
-                            color: Theme.of(context).brightness == Brightness.dark
-                                ? Colors.white
-                                : Theme.of(context).disabledColor.withOpacity(0.15),
+                            color:
+                                Theme.of(context).brightness == Brightness.dark
+                                    ? Colors.white
+                                    : Theme.of(context)
+                                        .disabledColor
+                                        .withOpacity(0.15),
                           ),
                           borderRadius: BorderRadius.circular(10),
                         ),
@@ -174,44 +202,58 @@ class _LivingSeedSignUpState extends State<LivingSeedSignUp> {
                           controller: passwordController,
                           decoration: InputDecoration(
                             filled: true,
-                            fillColor: Theme.of(context).disabledColor.withOpacity(0.15),
-                            prefixIcon: const Icon(Icons.lock_outline, size: 17),
+                            fillColor: Theme.of(context)
+                                .disabledColor
+                                .withOpacity(0.15),
+                            prefixIcon:
+                                const Icon(Icons.lock_outline, size: 17),
                             hintText: 'Password',
                             border: InputBorder.none,
                             hintStyle: TextStyle(
-                              color: Theme.of(context).brightness == Brightness.dark ? Colors.white : Theme.of(context).disabledColor,
+                              color: Theme.of(context).brightness ==
+                                      Brightness.dark
+                                  ? Colors.white
+                                  : Theme.of(context).disabledColor,
                               fontSize: 17,
                             ),
                             suffixIcon: GestureDetector(
-                              onTap: (){
+                              onTap: () {
                                 setState(() {
                                   _obscureText = !_obscureText;
                                 });
                               },
-                              child: Icon(_obscureText ? Icons.visibility_off_outlined : Icons.visibility_outlined, size: 17,),
+                              child: Icon(
+                                _obscureText ? Iconsax.eye_slash : Iconsax.eye,
+                                size: 17,
+                              ),
                             ),
                           ),
                         ),
                       ),
-                      const SizedBox(height: 20,),
+                      const SizedBox(
+                        height: 20,
+                      ),
                       const Align(
                         alignment: Alignment.centerLeft,
                         child: Text(
                           'Confirm Password',
                           style: TextStyle(
-                            fontSize: 18,
-                            fontWeight: FontWeight.bold
-                          ),
+                              fontSize: 18, fontWeight: FontWeight.bold),
                         ),
                       ),
-                      const SizedBox(height: 7,),
+                      const SizedBox(
+                        height: 7,
+                      ),
                       Container(
                         alignment: Alignment.center,
                         decoration: BoxDecoration(
                           border: Border.all(
-                            color: Theme.of(context).brightness == Brightness.dark
-                                ? Colors.white
-                                : Theme.of(context).disabledColor.withOpacity(0.15),
+                            color:
+                                Theme.of(context).brightness == Brightness.dark
+                                    ? Colors.white
+                                    : Theme.of(context)
+                                        .disabledColor
+                                        .withOpacity(0.15),
                           ),
                           borderRadius: BorderRadius.circular(10),
                         ),
@@ -220,26 +262,37 @@ class _LivingSeedSignUpState extends State<LivingSeedSignUp> {
                           controller: passwordController,
                           decoration: InputDecoration(
                             filled: true,
-                            fillColor: Theme.of(context).disabledColor.withOpacity(0.15),
-                            prefixIcon: const Icon(Icons.lock_outline, size: 17),
+                            fillColor: Theme.of(context)
+                                .disabledColor
+                                .withOpacity(0.15),
+                            prefixIcon:
+                                const Icon(Icons.lock_outline, size: 17),
                             hintText: 'Confirm Password',
                             border: InputBorder.none,
                             hintStyle: TextStyle(
-                              color: Theme.of(context).brightness == Brightness.dark ? Colors.white : Theme.of(context).disabledColor,
+                              color: Theme.of(context).brightness ==
+                                      Brightness.dark
+                                  ? Colors.white
+                                  : Theme.of(context).disabledColor,
                               fontSize: 17,
                             ),
                             suffixIcon: GestureDetector(
-                              onTap: (){
+                              onTap: () {
                                 setState(() {
                                   _obscureText = !_obscureText;
                                 });
                               },
-                              child: Icon(_obscureText ? Icons.visibility_off_outlined : Icons.visibility_outlined, size: 17,),
+                              child: Icon(
+                                _obscureText ? Iconsax.eye_slash : Iconsax.eye,
+                                size: 17,
+                              ),
                             ),
                           ),
                         ),
                       ),
-                      const SizedBox(height: 15,),
+                      const SizedBox(
+                        height: 15,
+                      ),
                       SizedBox(
                         width: MediaQuery.of(context).size.width * 0.9,
                         child: Row(
@@ -248,14 +301,16 @@ class _LivingSeedSignUpState extends State<LivingSeedSignUp> {
                             Checkbox(
                               checkColor: Colors.white,
                               activeColor: Theme.of(context).primaryColor,
-                              onChanged: (value){
+                              onChanged: (value) {
                                 setState(() {
                                   agreeToTerms = value!;
                                 });
                               },
                               value: agreeToTerms,
                             ),
-                            const SizedBox(width: 7,),
+                            const SizedBox(
+                              width: 7,
+                            ),
                             Column(
                               crossAxisAlignment: CrossAxisAlignment.start,
                               children: [
@@ -264,19 +319,21 @@ class _LivingSeedSignUpState extends State<LivingSeedSignUp> {
                                     const Text(
                                       'I agree with the',
                                       style: TextStyle(
-                                        fontWeight: FontWeight.w500,
-                                        fontSize: 16
-                                      ),
+                                          fontWeight: FontWeight.w500,
+                                          fontSize: 16),
                                     ),
                                     TextButton(
-                                      onPressed: (){},
+                                      onPressed: () {},
                                       child: Text(
                                         'Terms and Conditions',
                                         style: TextStyle(
-                                          fontWeight: FontWeight.bold,
-                                          fontSize: 16,
-                                          color: Theme.of(context).brightness == Brightness.dark ? Colors.white :Colors.black
-                                        ),
+                                            fontWeight: FontWeight.bold,
+                                            fontSize: 16,
+                                            color:
+                                                Theme.of(context).brightness ==
+                                                        Brightness.dark
+                                                    ? Colors.white
+                                                    : Colors.black),
                                       ),
                                     ),
                                   ],
@@ -286,9 +343,12 @@ class _LivingSeedSignUpState extends State<LivingSeedSignUp> {
                           ],
                         ),
                       ),
-                      const SizedBox(height: 10,),
+                      const SizedBox(
+                        height: 10,
+                      ),
                       ElevatedButton(
-                        onPressed: ()=> GoRouter.of(context).go(LivingSeedAppRouter.homePath),
+                        onPressed: () => GoRouter.of(context)
+                            .go(LivingSeedAppRouter.homePath),
                         style: ElevatedButton.styleFrom(
                           elevation: 0,
                           backgroundColor: Theme.of(context).primaryColor,
@@ -298,7 +358,7 @@ class _LivingSeedSignUpState extends State<LivingSeedSignUp> {
                           minimumSize: const Size(10, 50),
                         ),
                         child: const Padding(
-                          padding: EdgeInsets.symmetric(vertical:10.0),
+                          padding: EdgeInsets.symmetric(vertical: 10.0),
                           child: Center(
                             child: Text(
                               'Sign Up',
@@ -311,21 +371,24 @@ class _LivingSeedSignUpState extends State<LivingSeedSignUp> {
                           ),
                         ),
                       ),
-                      const SizedBox(height: 15,),
+                      const SizedBox(
+                        height: 15,
+                      ),
                       Padding(
-                        padding: const EdgeInsets.fromLTRB(20,10,20,10),
+                        padding: const EdgeInsets.fromLTRB(20, 10, 20, 10),
                         child: Text(
                           'OR SIGNUP WITH',
                           style: TextStyle(
-                            fontSize: 14,
-                            color: Theme.of(context).disabledColor,
-                            fontWeight: FontWeight.w700
-                          ),
+                              fontSize: 14,
+                              color: Theme.of(context).disabledColor,
+                              fontWeight: FontWeight.w700),
                         ),
                       ),
-                      const SizedBox(height: 15,),
+                      const SizedBox(
+                        height: 15,
+                      ),
                       ElevatedButton(
-                        onPressed: (){},
+                        onPressed: () {},
                         style: ElevatedButton.styleFrom(
                           elevation: 0,
                           backgroundColor: Theme.of(context).dividerColor,
@@ -339,21 +402,25 @@ class _LivingSeedSignUpState extends State<LivingSeedSignUp> {
                           child: Row(
                             mainAxisAlignment: MainAxisAlignment.center,
                             children: [
-                              const Icon(Icons.facebook, color: Colors.blue,),
-                              const SizedBox(width: 10,),
+                              SvgPicture.asset(
+                                  'assets/icons/devicon_google.svg'),
+                              const SizedBox(
+                                width: 10,
+                              ),
                               Text(
                                 'Google',
                                 style: TextStyle(
-                                  fontWeight: FontWeight.w700,
-                                  fontSize: 20.0,
-                                  color: Theme.of(context).primaryColorDark
-                                ),
+                                    fontWeight: FontWeight.w700,
+                                    fontSize: 20.0,
+                                    color: Theme.of(context).primaryColorDark),
                               ),
                             ],
                           ),
                         ),
                       ),
-                      const SizedBox(height: 60,),
+                      const SizedBox(
+                        height: 60,
+                      ),
                       Row(
                         mainAxisAlignment: MainAxisAlignment.center,
                         children: [
@@ -365,19 +432,20 @@ class _LivingSeedSignUpState extends State<LivingSeedSignUp> {
                             ),
                           ),
                           TextButton(
-                            onPressed: () => GoRouter.of(context).go(LivingSeedAppRouter.loginPath),
-                            child: Text(
-                              'Sign in',
-                              style: TextStyle(
-                                color: Theme.of(context).primaryColorDark,
-                                fontSize: 15,
-                                fontWeight: FontWeight.w600,
-                              )
-                            ),
+                            onPressed: () => GoRouter.of(context)
+                                .go(LivingSeedAppRouter.loginPath),
+                            child: Text('Sign in',
+                                style: TextStyle(
+                                  color: Theme.of(context).primaryColorDark,
+                                  fontSize: 15,
+                                  fontWeight: FontWeight.w600,
+                                )),
                           ),
                         ],
                       ),
-                      const SizedBox(height: 20,),
+                      const SizedBox(
+                        height: 20,
+                      ),
                     ],
                   ),
                 ),

@@ -10,36 +10,37 @@ class Books extends StatelessWidget {
       children: [
         ...buildBooks(context, [
           {
-            'imagePath': 'assets/images/bookPicture.png',
+            'imagePath': 'assets/images/becoming_like_jesus.png',
             'date': '2012',
             'title': 'Becoming like Jesus',
-            'price':"NGN 1,000.00",
+            'price': "NGN 1,000.00",
             'author': 'Gbile Akanni',
-            'rating':'4.8'
+            'rating': '4.8'
           },
           {
-            'imagePath': 'assets/images/bookPicture.png',
+            'imagePath': 'assets/images/becoming_like_jesus.png',
             'date': '2022',
             'title': 'Silent steps to becoming prodigal',
             'price': 'NGN 1,200.00',
-            'author':'Lanre Adeboye',
-            'rating':'4.6'
+            'author': 'Lanre Adeboye',
+            'rating': '4.6'
           },
         ]),
       ],
     );
   }
 
-  List<Widget> buildBooks(BuildContext context, List<Map<String, String>> books) {
-    return books.map((textbook) => book(
-      context,
-      imagePath: textbook['imagePath']!,
-      date: textbook['date']!,
-      title: textbook['title']!,
-      author: textbook['author']!,
-      price: textbook['price']!,
-      rating: textbook['rating']!
-    )).toList();
+  List<Widget> buildBooks(
+      BuildContext context, List<Map<String, String>> books) {
+    return books
+        .map((textbook) => book(context,
+            imagePath: textbook['imagePath']!,
+            date: textbook['date']!,
+            title: textbook['title']!,
+            author: textbook['author']!,
+            price: textbook['price']!,
+            rating: textbook['rating']!))
+        .toList();
   }
 
   Widget book(BuildContext context,
@@ -91,12 +92,13 @@ class Books extends StatelessWidget {
                           Text(
                             author,
                             style: const TextStyle(
-                                fontWeight: FontWeight.w500,
-                                fontSize: 14.0),
+                                fontWeight: FontWeight.w500, fontSize: 14.0),
                           ),
                         ],
                       ),
-                      const SizedBox(height: 8,),
+                      const SizedBox(
+                        height: 8,
+                      ),
                       Row(
                         children: [
                           Text(
@@ -107,7 +109,9 @@ class Books extends StatelessWidget {
                               color: Colors.deepOrange,
                             ),
                           ),
-                          const SizedBox(width: 5,),
+                          const SizedBox(
+                            width: 5,
+                          ),
                           const Icon(
                             Icons.star,
                             color: Colors.deepOrange,
@@ -135,7 +139,9 @@ class Books extends StatelessWidget {
                           ),
                         ],
                       ),
-                      const SizedBox(height: 8,),
+                      const SizedBox(
+                        height: 8,
+                      ),
                       Text(
                         price,
                         style: const TextStyle(

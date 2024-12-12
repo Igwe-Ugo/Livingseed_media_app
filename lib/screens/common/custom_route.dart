@@ -48,6 +48,7 @@ class LivingSeedAppRouter {
   static const String audioScreenPath = 'audio_screen';
   static const String changePasswordPath = 'change_password';
   static const String notificationPath = 'notifications';
+  static const String profilePath = 'profile';
 
   LivingSeedAppRouter._internal() {
     final routes = <RouteBase>[
@@ -78,9 +79,7 @@ class LivingSeedAppRouter {
                       routes: [
                         GoRoute(
                             path: notificationPath,
-                            builder: (context, state) => const Notifications(
-                                  index: 1,
-                                ))
+                            builder: (context, state) => const Notifications()),
                       ]),
                 ]),
             StatefulShellBranch(
@@ -92,9 +91,7 @@ class LivingSeedAppRouter {
                       routes: [
                         GoRoute(
                             path: notificationPath,
-                            builder: (context, state) => const Notifications(
-                                  index: 2,
-                                )),
+                            builder: (context, state) => const Notifications()),
                         GoRoute(
                             path: aboutBookPath,
                             builder: (context, state) => const AboutBook(),
@@ -121,9 +118,7 @@ class LivingSeedAppRouter {
                       routes: [
                         GoRoute(
                             path: notificationPath,
-                            builder: (context, state) => const Notifications(
-                                  index: 3,
-                                )),
+                            builder: (context, state) => const Notifications()),
                         GoRoute(
                             path: videoMessagesPath,
                             builder: (context, state) => const VideoMessages()),
@@ -147,9 +142,7 @@ class LivingSeedAppRouter {
                       routes: [
                         GoRoute(
                             path: notificationPath,
-                            builder: (context, state) => const Notifications(
-                                  index: 4,
-                                )),
+                            builder: (context, state) => const Notifications()),
                         GoRoute(
                           path: cartPath,
                           builder: (context, state) => const Cart(),
@@ -161,6 +154,10 @@ class LivingSeedAppRouter {
                         GoRoute(
                           path: changePasswordPath,
                           builder: (context, state) => const ChangePassword(),
+                        ),
+                        GoRoute(
+                          path: profilePath,
+                          builder: (context, state) => const Profile(),
                         )
                       ]),
                 ]),

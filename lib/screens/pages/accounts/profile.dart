@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:iconsax/iconsax.dart';
 
+import '../../common/widget.dart';
+
 class Profile extends StatefulWidget {
   const Profile({super.key});
 
@@ -161,7 +163,7 @@ class _ProfileState extends State<Profile> {
               ),
               Center(
                   child: TextButton(
-                      onPressed: () {},
+                      onPressed: () => showDeleteDialog(context),
                       child: const Text(
                         'Close Account',
                         style: TextStyle(color: Colors.red),
@@ -172,4 +174,53 @@ class _ProfileState extends State<Profile> {
       ),
     );
   }
+}
+
+Future<void> showDeleteDialog(BuildContext context) {
+  return showDialog(
+    context: context,
+    builder: (BuildContext context) => AlertDialog(
+      title: const Text(
+        'Delete Account?',
+        style: TextStyle(
+          fontSize: 19,
+          fontWeight: FontWeight.bold,
+          color: Colors.red,
+        ),
+      ),
+      content: const SizedBox(
+        height: 40,
+        child: Align(
+          alignment: Alignment.center,
+          child: Text(
+            'Are you sure you want to delete your account with us?',
+            style: TextStyle(
+              fontSize: 15,
+            ),
+          ),
+        ),
+      ),
+      actions: [
+        TextButton(
+          onPressed: () async {
+            Navigator.of(context).pop();
+            GoRouter.of(context).go(LivingSeedAppRouter.signUpPath);
+            showMessage('Account has been deleted!', context);
+          },
+          child: Text(
+            'delete account'.toUpperCase(),
+            style: const TextStyle(fontSize: 13, color: Colors.red),
+          ),
+        ),
+        TextButton(
+          onPressed: () => Navigator.of(context).pop(),
+          child: Text(
+            'not yet'.toUpperCase(),
+            style:
+                TextStyle(fontSize: 13, color: Theme.of(context).disabledColor),
+          ),
+        ),
+      ],
+    ),
+  );
 }

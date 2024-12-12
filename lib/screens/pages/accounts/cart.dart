@@ -187,7 +187,9 @@ class _CartState extends State<Cart> {
                                           Radius.circular(5)),
                                     ),
                                     child: Image.asset(
-                                      'assets/images/bookPicture.png',
+                                      height: 100,
+                                      width: 100,
+                                      'assets/images/becoming_like_jesus.png',
                                     ),
                                   ),
                                   const SizedBox(

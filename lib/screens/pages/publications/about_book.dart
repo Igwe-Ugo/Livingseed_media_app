@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
+import 'package:iconsax/iconsax.dart';
 import 'package:livingseed_media/screens/common/custom_route.dart';
 
 import 'publications.dart';
@@ -90,7 +91,7 @@ class _AboutBookState extends State<AboutBook> {
                   decoration: const BoxDecoration(
                       image: DecorationImage(
                     fit: BoxFit.fill,
-                    image: AssetImage('assets/images/bookPicture.png'),
+                    image: AssetImage('assets/images/becoming_like_jesus.png'),
                   )),
                 ),
               ),
@@ -193,7 +194,7 @@ class _AboutBookState extends State<AboutBook> {
                             return IconButton(
                               onPressed: () => _onStarPressed(index),
                               icon: Icon(
-                                Icons.star,
+                                Iconsax.star1,
                                 color: stars[index]
                                     ? Colors.orange.withOpacity(0.5)
                                     : Colors.grey.withOpacity(0.2),

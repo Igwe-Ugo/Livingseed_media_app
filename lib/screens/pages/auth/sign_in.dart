@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 import 'package:go_router/go_router.dart';
 import 'package:iconsax/iconsax.dart';
 import 'package:livingseed_media/screens/common/custom_route.dart';
@@ -251,10 +252,8 @@ class _LivingSeedSignInState extends State<LivingSeedSignIn> {
                           child: Row(
                             mainAxisAlignment: MainAxisAlignment.center,
                             children: [
-                              const Icon(
-                                Icons.facebook,
-                                color: Colors.blue,
-                              ),
+                              SvgPicture.asset(
+                                  'assets/icons/devicon_google.svg'),
                               const SizedBox(
                                 width: 10,
                               ),
@@ -284,7 +283,7 @@ class _LivingSeedSignInState extends State<LivingSeedSignIn> {
                           ),
                           TextButton(
                             onPressed: () => GoRouter.of(context)
-                                .go(LivingSeedAppRouter.forgotPasswordPath),
+                                .go(LivingSeedAppRouter.signUpPath),
                             child: Text('Sign up',
                                 style: TextStyle(
                                   color: Theme.of(context).primaryColorDark,

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:iconsax/iconsax.dart';
 import 'package:video_player/video_player.dart';
 
 class VideoMessages extends StatefulWidget {
@@ -11,7 +12,7 @@ class VideoMessages extends StatefulWidget {
 class _VideoMessagesState extends State<VideoMessages> {
   final TextEditingController _searchVideoController = TextEditingController();
   late VideoPlayerController videoPlayerController;
-  
+
   @override
   Widget build(BuildContext context) {
     return SingleChildScrollView(
@@ -19,57 +20,63 @@ class _VideoMessagesState extends State<VideoMessages> {
         padding: const EdgeInsets.symmetric(vertical: 10, horizontal: 25.0),
         child: Column(
           children: [
-            const SizedBox(height: 15,),
+            const SizedBox(
+              height: 15,
+            ),
             Container(
               alignment: Alignment.center,
               decoration: BoxDecoration(
+                borderRadius: const BorderRadius.all(Radius.circular(12)),
                 border: Border.all(
                   color: Theme.of(context).brightness == Brightness.dark
                       ? Colors.white
-                      : Theme.of(context).disabledColor.withOpacity(0.5),
+                      : Theme.of(context).disabledColor.withOpacity(0.15),
                 ),
-                borderRadius: BorderRadius.circular(20),
               ),
               child: TextFormField(
+                keyboardType: TextInputType.emailAddress,
                 controller: _searchVideoController,
-                onChanged: (text) {},
-                textAlign: TextAlign.start,
                 decoration: InputDecoration(
-                  contentPadding: const EdgeInsets.fromLTRB(10, 10, 10, 0),
-                  hintText: 'search video',
-                  prefixIcon: Icon(
-                    Icons.search,
-                    size: 30,
-                    color: Theme.of(context).disabledColor,
+                  filled: true,
+                  fillColor: Theme.of(context).disabledColor.withOpacity(0.15),
+                  prefixIcon: const Icon(
+                    Iconsax.video_circle,
+                    size: 17,
                   ),
-                  border: InputBorder.none,
+                  errorStyle: const TextStyle(
+                      fontSize: 15, fontWeight: FontWeight.w700),
+                  hintText: 'Search Video',
+                  border: const OutlineInputBorder(
+                      borderSide: BorderSide.none,
+                      borderRadius: BorderRadius.all(Radius.circular(12))),
                   hintStyle: TextStyle(
                     color: Theme.of(context).brightness == Brightness.dark
                         ? Colors.white
                         : Theme.of(context).disabledColor,
-                    fontSize: 20,
-                    fontFamily: 'Satoshi',
+                    fontSize: 17,
                   ),
                 ),
               ),
             ),
-            const SizedBox(height: 20,),
+            const SizedBox(
+              height: 20,
+            ),
             ListView(
               shrinkWrap: true,
               children: [
                 ...buildVideoMessages(context, [
                   {
-                    'videoPath': 'assets/images/bookPicture.png',
+                    'videoPath': 'assets/images/becoming_like_jesus.png',
                     'size': '345',
                     'title': 'Becoming like Jesus',
                     'speaker': 'Gbile Akanni',
                     'time': '2:00:35'
                   },
                   {
-                    'videoPath': 'assets/images/bookPicture.png',
+                    'videoPath': 'assets/images/becoming_like_jesus.png',
                     'size': '200',
                     'title': 'Silent steps to becoming prodigal',
-                    'speaker':'Emmanuel Akhemibe',
+                    'speaker': 'Emmanuel Akhemibe',
                     'time': '1:35:56'
                   },
                 ]),
@@ -81,24 +88,26 @@ class _VideoMessagesState extends State<VideoMessages> {
     );
   }
 
-  List<Widget> buildVideoMessages(BuildContext context, List<Map<String, String>> books) {
-    return books.map((video) => videos(
-      context,
-      videoPath: video['videoPath']!,
-      size: video['size']!,
-      title: video['title']!,
-      speaker: video['speaker']!,
-      time: video['time']!
-    )).toList();
+  List<Widget> buildVideoMessages(
+      BuildContext context, List<Map<String, String>> books) {
+    return books
+        .map((video) => videos(context,
+            videoPath: video['videoPath']!,
+            size: video['size']!,
+            title: video['title']!,
+            speaker: video['speaker']!,
+            time: video['time']!))
+        .toList();
   }
 
-  Widget videos(BuildContext context,{
-      required String videoPath,
-      required String size,
-      required String title,
-      required String speaker,
-      required String time,
-    }) {
+  Widget videos(
+    BuildContext context, {
+    required String videoPath,
+    required String size,
+    required String title,
+    required String speaker,
+    required String time,
+  }) {
     return Column(
       children: [
         SizedBox(
@@ -110,17 +119,14 @@ class _VideoMessagesState extends State<VideoMessages> {
                 Align(
                   alignment: Alignment.topCenter,
                   child: Container(
-                    height: 70,
-                    width: 140,
-                    padding: const EdgeInsets.all(5),
-                    decoration: BoxDecoration(
-                      borderRadius: const BorderRadius.all(Radius.circular(10)),
-                      image: DecorationImage(
-                        image: AssetImage(videoPath),
-                        fit: BoxFit.fill
-                      )
-                    )
-                  ),
+                      height: 70,
+                      width: 140,
+                      padding: const EdgeInsets.all(5),
+                      decoration: BoxDecoration(
+                          borderRadius:
+                              const BorderRadius.all(Radius.circular(10)),
+                          image: DecorationImage(
+                              image: AssetImage(videoPath), fit: BoxFit.fill))),
                 ),
                 const SizedBox(
                   width: 16,
@@ -137,8 +143,7 @@ class _VideoMessagesState extends State<VideoMessages> {
                       Text(
                         speaker,
                         style: const TextStyle(
-                            fontWeight: FontWeight.w500,
-                            fontSize: 14.0),
+                            fontWeight: FontWeight.w500, fontSize: 14.0),
                       ),
                       Row(
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -146,14 +151,11 @@ class _VideoMessagesState extends State<VideoMessages> {
                           Text(
                             '$size MB',
                             style: const TextStyle(
-                                fontWeight: FontWeight.w500,
-                                fontSize: 12.0),
+                                fontWeight: FontWeight.w500, fontSize: 12.0),
                           ),
                           const IconButton(
                             onPressed: null,
-                            icon: Icon(
-                              Icons.more_vert
-                            ),
+                            icon: Icon(Icons.more_vert),
                           ),
                         ],
                       ),

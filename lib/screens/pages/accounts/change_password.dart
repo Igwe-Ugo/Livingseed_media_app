@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
+import 'package:iconsax/iconsax.dart';
 
 class ChangePassword extends StatefulWidget {
   const ChangePassword({super.key});
@@ -9,7 +10,8 @@ class ChangePassword extends StatefulWidget {
 }
 
 class _ChangePasswordState extends State<ChangePassword> {
-  final double _textFont = 17.0;
+  bool _obscureText = true;
+  bool _obscureText2 = true;
   final double _textFieldFont = 17.0;
   final _formKey = GlobalKey<FormState>();
   final _oldPasswordController = TextEditingController();
@@ -19,28 +21,9 @@ class _ChangePasswordState extends State<ChangePassword> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        leading: IconButton(
-          onPressed: () => GoRouter.of(context).pop(),
-          icon: const Icon(
-            Icons.arrow_back_ios_new_outlined,
-            size: 17,
-          ),
-        ),
-        title: Text(
-          'Change Password',
-          style: TextStyle(
-              fontWeight: FontWeight.bold,
-              fontSize: 16,
-              fontFamily: 'playfair',
-              color: Theme.of(context).brightness == Brightness.dark
-                  ? Colors.white
-                  : Colors.black),
-        ),
-      ),
       persistentFooterButtons: [
         ElevatedButton(
-          onPressed: null,
+          onPressed: () {},
           style: ElevatedButton.styleFrom(
             elevation: 0,
             backgroundColor: Theme.of(context).primaryColor,
@@ -49,16 +32,14 @@ class _ChangePasswordState extends State<ChangePassword> {
             ),
             minimumSize: const Size(10, 50),
           ),
-          child: Padding(
-            padding: const EdgeInsets.symmetric(vertical: 15.0),
+          child: const Padding(
+            padding: EdgeInsets.symmetric(vertical: 15.0),
             child: Center(
                 child: Text('Change Password',
                     style: TextStyle(
                         fontWeight: FontWeight.w700,
                         fontSize: 17.0,
-                        color: Theme.of(context).brightness == Brightness.dark
-                            ? Colors.white
-                            : Colors.black))),
+                        color: Colors.white))),
           ),
         )
       ],
@@ -70,6 +51,32 @@ class _ChangePasswordState extends State<ChangePassword> {
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
+                Row(
+                  children: [
+                    IconButton(
+                        onPressed: () {
+                          GoRouter.of(context).pop();
+                        },
+                        icon: const Icon(
+                          Iconsax.arrow_left_2,
+                          size: 17,
+                        )),
+                    const SizedBox(
+                      width: 15,
+                    ),
+                    const Text(
+                      'Change Password',
+                      style: TextStyle(
+                        fontFamily: 'Playfair',
+                        fontSize: 20,
+                        fontWeight: FontWeight.bold,
+                      ),
+                    ),
+                  ],
+                ),
+                const SizedBox(
+                  height: 20,
+                ),
                 Text(
                   'Enter old password',
                   style: TextStyle(
@@ -80,26 +87,51 @@ class _ChangePasswordState extends State<ChangePassword> {
                 const SizedBox(
                   height: 8,
                 ),
-                TextFormField(
-                  controller: _oldPasswordController,
-                  validator: (value) {
-                    if (value == null || value.isEmpty) {
-                      return 'Please enter your old password';
-                    }
-                    return null;
-                  },
-                  decoration: InputDecoration(
-                    errorStyle: const TextStyle(
-                        fontSize: 15, fontWeight: FontWeight.w700),
-                    hintText: 'Old password',
-                    border: OutlineInputBorder(
-                        borderSide: BorderSide(
-                            color: Theme.of(context).highlightColor)),
-                    hintStyle: TextStyle(
+                Container(
+                  alignment: Alignment.center,
+                  decoration: BoxDecoration(
+                    border: Border.all(
                       color: Theme.of(context).brightness == Brightness.dark
                           ? Colors.white
-                          : Colors.black,
-                      fontSize: _textFont,
+                          : Theme.of(context).disabledColor.withOpacity(0.15),
+                    ),
+                    borderRadius: BorderRadius.circular(10),
+                  ),
+                  child: TextFormField(
+                    obscureText: _obscureText,
+                    controller: _oldPasswordController,
+                    validator: (value) {
+                      if (value == null || value.isEmpty) {
+                        return 'Please enter your old password';
+                      }
+                      return null;
+                    },
+                    decoration: InputDecoration(
+                      filled: true,
+                      fillColor:
+                          Theme.of(context).disabledColor.withOpacity(0.15),
+                      prefixIcon: const Icon(Icons.lock_outline, size: 17),
+                      hintText: 'Old Password',
+                      border: InputBorder.none,
+                      hintStyle: TextStyle(
+                        color: Theme.of(context).brightness == Brightness.dark
+                            ? Colors.white
+                            : Theme.of(context).disabledColor,
+                        fontSize: 17,
+                      ),
+                      errorStyle: const TextStyle(
+                          fontSize: 15, fontWeight: FontWeight.w700),
+                      suffixIcon: GestureDetector(
+                        onTap: () {
+                          setState(() {
+                            _obscureText = !_obscureText;
+                          });
+                        },
+                        child: Icon(
+                          _obscureText ? Iconsax.eye : Iconsax.eye_slash,
+                          size: 17,
+                        ),
+                      ),
                     ),
                   ),
                 ),
@@ -116,29 +148,54 @@ class _ChangePasswordState extends State<ChangePassword> {
                 const SizedBox(
                   height: 8,
                 ),
-                TextFormField(
-                  controller: _newPasswordController,
-                  validator: (value) {
-                    if (value == null || value.isEmpty) {
-                      return 'Please enter a new password';
-                    }
-                    if (value.length < 4) {
-                      return 'Password must be at least 4 characters long';
-                    }
-                    return null;
-                  },
-                  decoration: InputDecoration(
-                    errorStyle: const TextStyle(
-                        fontSize: 15, fontWeight: FontWeight.w700),
-                    hintText: 'New password',
-                    border: OutlineInputBorder(
-                        borderSide: BorderSide(
-                            color: Theme.of(context).highlightColor)),
-                    hintStyle: TextStyle(
+                Container(
+                  alignment: Alignment.center,
+                  decoration: BoxDecoration(
+                    border: Border.all(
                       color: Theme.of(context).brightness == Brightness.dark
                           ? Colors.white
-                          : Colors.black,
-                      fontSize: _textFont,
+                          : Theme.of(context).disabledColor.withOpacity(0.15),
+                    ),
+                    borderRadius: BorderRadius.circular(10),
+                  ),
+                  child: TextFormField(
+                    obscureText: _obscureText2,
+                    controller: _newPasswordController,
+                    validator: (value) {
+                      if (value == null || value.isEmpty) {
+                        return 'Please enter a new password';
+                      }
+                      if (value.length < 4) {
+                        return 'Password must be at least 4 characters long';
+                      }
+                      return null;
+                    },
+                    decoration: InputDecoration(
+                      filled: true,
+                      fillColor:
+                          Theme.of(context).disabledColor.withOpacity(0.15),
+                      prefixIcon: const Icon(Icons.lock_outline, size: 17),
+                      hintText: 'New Password',
+                      border: InputBorder.none,
+                      hintStyle: TextStyle(
+                        color: Theme.of(context).brightness == Brightness.dark
+                            ? Colors.white
+                            : Theme.of(context).disabledColor,
+                        fontSize: 17,
+                      ),
+                      errorStyle: const TextStyle(
+                          fontSize: 15, fontWeight: FontWeight.w700),
+                      suffixIcon: GestureDetector(
+                        onTap: () {
+                          setState(() {
+                            _obscureText2 = !_obscureText2;
+                          });
+                        },
+                        child: Icon(
+                          _obscureText2 ? Iconsax.eye : Iconsax.eye_slash,
+                          size: 17,
+                        ),
+                      ),
                     ),
                   ),
                 ),
@@ -155,29 +212,54 @@ class _ChangePasswordState extends State<ChangePassword> {
                 const SizedBox(
                   height: 8,
                 ),
-                TextFormField(
-                  controller: _confirmNewPasswordController,
-                  validator: (value) {
-                    if (value == null || value.isEmpty) {
-                      return 'Please confirm your new password';
-                    }
-                    if (value != _newPasswordController.text) {
-                      return 'Passwords do not match';
-                    }
-                    return null;
-                  },
-                  decoration: InputDecoration(
-                    errorStyle: const TextStyle(
-                        fontSize: 15, fontWeight: FontWeight.w700),
-                    hintText: 'Confirm password',
-                    border: OutlineInputBorder(
-                        borderSide: BorderSide(
-                            color: Theme.of(context).highlightColor)),
-                    hintStyle: TextStyle(
+                Container(
+                  alignment: Alignment.center,
+                  decoration: BoxDecoration(
+                    border: Border.all(
                       color: Theme.of(context).brightness == Brightness.dark
                           ? Colors.white
-                          : Colors.black,
-                      fontSize: _textFont,
+                          : Theme.of(context).disabledColor.withOpacity(0.15),
+                    ),
+                    borderRadius: BorderRadius.circular(10),
+                  ),
+                  child: TextFormField(
+                    obscureText: _obscureText2,
+                    controller: _confirmNewPasswordController,
+                    validator: (value) {
+                      if (value == null || value.isEmpty) {
+                        return 'Please confirm your new password';
+                      }
+                      if (value != _newPasswordController.text) {
+                        return 'Passwords do not match';
+                      }
+                      return null;
+                    },
+                    decoration: InputDecoration(
+                      filled: true,
+                      fillColor:
+                          Theme.of(context).disabledColor.withOpacity(0.15),
+                      prefixIcon: const Icon(Icons.lock_outline, size: 17),
+                      hintText: 'Confirm Password',
+                      border: InputBorder.none,
+                      hintStyle: TextStyle(
+                        color: Theme.of(context).brightness == Brightness.dark
+                            ? Colors.white
+                            : Theme.of(context).disabledColor,
+                        fontSize: 17,
+                      ),
+                      errorStyle: const TextStyle(
+                          fontSize: 15, fontWeight: FontWeight.w700),
+                      suffixIcon: GestureDetector(
+                        onTap: () {
+                          setState(() {
+                            _obscureText2 = !_obscureText2;
+                          });
+                        },
+                        child: Icon(
+                          _obscureText2 ? Iconsax.eye : Iconsax.eye_slash,
+                          size: 17,
+                        ),
+                      ),
                     ),
                   ),
                 ),

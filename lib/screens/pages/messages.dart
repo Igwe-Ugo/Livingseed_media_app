@@ -35,38 +35,34 @@ class _MessagesPageState extends State<MessagesPage> {
                       fontWeight: FontWeight.bold,
                     ),
                   ),
-                  InkWell(
-                    onTap: () => GoRouter.of(context).go(
-                        '${LivingSeedAppRouter.messagesPath}/${LivingSeedAppRouter.notificationPath}'),
-                    child: Padding(
-                      padding: const EdgeInsets.symmetric(horizontal: 8.0),
-                      child: InkWell(
-                        onTap: () {},
-                        child: Padding(
-                          padding: const EdgeInsets.all(10.0),
-                          child: Stack(
-                            alignment: AlignmentDirectional.bottomEnd,
-                            children: [
-                              const Icon(Iconsax.message),
-                              Container(
-                                padding: const EdgeInsets.all(4),
-                                decoration: BoxDecoration(
-                                  color: Theme.of(context)
-                                      .primaryColor
-                                      .withOpacity(0.8),
-                                  shape: BoxShape.circle,
-                                ),
-                                child: const Text(
-                                  '2',
-                                  style: TextStyle(
-                                      fontSize: 10.0,
-                                      fontWeight: FontWeight.bold,
-                                      color: Colors.white),
-                                  textAlign: TextAlign.center,
-                                ),
+                  Padding(
+                    padding: const EdgeInsets.symmetric(horizontal: 8.0),
+                    child: InkWell(
+                      onTap: () => GoRouter.of(context).go('${LivingSeedAppRouter.messagesPath}/${LivingSeedAppRouter.notificationPath}'),
+                      child: Padding(
+                        padding: const EdgeInsets.all(10.0),
+                        child: Stack(
+                          alignment: AlignmentDirectional.bottomEnd,
+                          children: [
+                            const Icon(Iconsax.message),
+                            Container(
+                              padding: const EdgeInsets.all(4),
+                              decoration: BoxDecoration(
+                                color: Theme.of(context)
+                                    .primaryColor
+                                    .withOpacity(0.8),
+                                shape: BoxShape.circle,
                               ),
-                            ],
-                          ),
+                              child: const Text(
+                                '2',
+                                style: TextStyle(
+                                    fontSize: 10.0,
+                                    fontWeight: FontWeight.bold,
+                                    color: Colors.white),
+                                textAlign: TextAlign.center,
+                              ),
+                            ),
+                          ],
                         ),
                       ),
                     ),
