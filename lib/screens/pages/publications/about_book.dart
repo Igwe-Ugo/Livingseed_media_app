@@ -14,18 +14,6 @@ class AboutBook extends StatefulWidget {
 
 class _AboutBookState extends State<AboutBook> {
   List<bool> stars = [true, true, true, true, false];
-  void _onStarPressed(int index) {
-    setState(() {
-      for (int i = 0; i <= index; i++) {
-        stars[i] = !stars[index];
-      }
-      if (!stars[index]) {
-        for (int i = index + 1; i < stars.length; i++) {
-          stars[i] = false;
-        }
-      }
-    });
-  }
 
   bool more = false;
   String aboutPreface =
@@ -59,28 +47,38 @@ class _AboutBookState extends State<AboutBook> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        appBar: AppBar(
-          leading: IconButton(
-              onPressed: () {
-                GoRouter.of(context).pop();
-              },
-              icon: const Icon(
-                Icons.arrow_back_ios_new_outlined,
-                size: 17,
-              )),
-          title: const Align(
-            alignment: Alignment.center,
-            child: Text(
-              'Becoming like Jesus',
-              style: TextStyle(
-                  fontWeight: FontWeight.bold,
-                  fontSize: 16,
-                  fontFamily: 'Playfair'),
-            ),
+        body: SingleChildScrollView(
+            child: Column(
+      children: [
+        Padding(
+          padding: const EdgeInsets.fromLTRB(10.0, 20, 10, 0),
+          child: Row(
+            children: [
+              IconButton(
+                  onPressed: () {
+                    GoRouter.of(context).pop();
+                  },
+                  icon: const Icon(
+                    Iconsax.arrow_left_2,
+                    size: 17,
+                  )),
+              const SizedBox(
+                width: 20,
+              ),
+              const Align(
+                alignment: Alignment.center,
+                child: Text(
+                  'Becoming like Jesus',
+                  style: TextStyle(
+                      fontWeight: FontWeight.bold,
+                      fontSize: 16,
+                      fontFamily: 'Playfair'),
+                ),
+              ),
+            ],
           ),
         ),
-        body: SingleChildScrollView(
-            child: Padding(
+        Padding(
           padding: const EdgeInsets.all(30.0),
           child: Column(
             children: [
@@ -191,15 +189,12 @@ class _AboutBookState extends State<AboutBook> {
                         Row(
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: List.generate(5, (index) {
-                            return IconButton(
-                              onPressed: () => _onStarPressed(index),
-                              icon: Icon(
-                                Iconsax.star1,
-                                color: stars[index]
-                                    ? Colors.orange.withOpacity(0.5)
-                                    : Colors.grey.withOpacity(0.2),
-                                size: 30,
-                              ),
+                            return Icon(
+                              Iconsax.star1,
+                              color: stars[index]
+                                  ? Colors.orange.withOpacity(0.5)
+                                  : Colors.grey.withOpacity(0.2),
+                              size: 30,
                             );
                           }),
                         ),
@@ -370,9 +365,11 @@ class _AboutBookState extends State<AboutBook> {
                         )),
                   ],
                 ),
-              )
+              ),
             ],
           ),
-        )));
+        )
+      ],
+    )));
   }
 }

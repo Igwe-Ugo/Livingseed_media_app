@@ -18,35 +18,41 @@ class _ReviewsState extends State<Reviews> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        appBar: AppBar(
-          leading: IconButton(
-              onPressed: () {
-                GoRouter.of(context).pop();
-              },
-              icon: const Icon(
-                Icons.arrow_back_ios_new_outlined,
-                size: 17,
-              )),
-          title: const Align(
-            alignment: Alignment.center,
-            child: Text(
-              'Reviews',
-              style: TextStyle(
-                  fontWeight: FontWeight.bold,
-                  fontSize: 16,
-                  fontFamily: 'Playfair'),
+        body: SingleChildScrollView(
+      child: Column(
+        children: [
+          Padding(
+            padding: const EdgeInsets.fromLTRB(10.0, 20, 10, 0),
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                IconButton(
+                    onPressed: () {
+                      GoRouter.of(context).pop();
+                    },
+                    icon: const Icon(
+                      Iconsax.arrow_left_2,
+                      size: 17,
+                    )),
+                const Align(
+                  alignment: Alignment.center,
+                  child: Text(
+                    'Reviews',
+                    style: TextStyle(
+                        fontWeight: FontWeight.bold,
+                        fontSize: 16,
+                        fontFamily: 'Playfair'),
+                  ),
+                ),
+                IconButton(
+                  onPressed: () => GoRouter.of(context).go(
+                      '${LivingSeedAppRouter.publicationsPath}/${LivingSeedAppRouter.aboutBookPath}/${LivingSeedAppRouter.reviewsPath}/${LivingSeedAppRouter.writeReviewPath}'),
+                  icon: const Icon(Iconsax.edit_2),
+                ),
+              ],
             ),
           ),
-          actions: [
-            IconButton(
-              onPressed: () => GoRouter.of(context).go(
-                  '${LivingSeedAppRouter.publicationsPath}/${LivingSeedAppRouter.aboutBookPath}/${LivingSeedAppRouter.reviewsPath}/${LivingSeedAppRouter.writeReviewPath}'),
-              icon: const Icon(Icons.edit_outlined),
-            ),
-          ],
-        ),
-        body: SingleChildScrollView(
-          child: Padding(
+          Padding(
             padding: const EdgeInsets.all(30.0),
             child: Column(
               children: [
@@ -86,22 +92,22 @@ class _ReviewsState extends State<Reviews> {
                               size: 12,
                             ),
                             const Icon(
-                              Icons.star,
+                              Iconsax.star1,
                               color: Colors.orange,
                               size: 12,
                             ),
                             const Icon(
-                              Icons.star,
+                              Iconsax.star1,
                               color: Colors.orange,
                               size: 12,
                             ),
                             const Icon(
-                              Icons.star,
+                              Iconsax.star1,
                               color: Colors.orange,
                               size: 12,
                             ),
                             const Icon(
-                              Icons.star,
+                              Iconsax.star1,
                               color: Colors.orange,
                               size: 12,
                             ),
@@ -120,22 +126,22 @@ class _ReviewsState extends State<Reviews> {
                               width: 5,
                             ),
                             const Icon(
-                              Icons.star,
+                              Iconsax.star1,
                               color: Colors.orange,
                               size: 12,
                             ),
                             const Icon(
-                              Icons.star,
+                              Iconsax.star1,
                               color: Colors.orange,
                               size: 12,
                             ),
                             const Icon(
-                              Icons.star,
+                              Iconsax.star1,
                               color: Colors.orange,
                               size: 12,
                             ),
                             const Icon(
-                              Icons.star,
+                              Iconsax.star1,
                               color: Colors.orange,
                               size: 12,
                             ),
@@ -151,17 +157,17 @@ class _ReviewsState extends State<Reviews> {
                         Row(
                           children: [
                             const Icon(
-                              Icons.star,
+                              Iconsax.star1,
                               color: Colors.orange,
                               size: 12,
                             ),
                             const Icon(
-                              Icons.star,
+                              Iconsax.star1,
                               color: Colors.orange,
                               size: 12,
                             ),
                             const Icon(
-                              Icons.star,
+                              Iconsax.star1,
                               color: Colors.orange,
                               size: 12,
                             ),
@@ -180,12 +186,12 @@ class _ReviewsState extends State<Reviews> {
                               width: 5,
                             ),
                             const Icon(
-                              Icons.star,
+                              Iconsax.star1,
                               color: Colors.orange,
                               size: 12,
                             ),
                             const Icon(
-                              Icons.star,
+                              Iconsax.star1,
                               color: Colors.orange,
                               size: 12,
                             ),
@@ -204,7 +210,7 @@ class _ReviewsState extends State<Reviews> {
                               width: 5,
                             ),
                             const Icon(
-                              Icons.star,
+                              Iconsax.star1,
                               color: Colors.orange,
                               size: 12,
                             ),
@@ -259,8 +265,7 @@ class _ReviewsState extends State<Reviews> {
                 Divider(
                   color: Theme.of(context).disabledColor,
                 ),
-                ListView(
-                  shrinkWrap: true,
+                Column(
                   children: [
                     ...buildBooks(context, [
                       {
@@ -311,7 +316,9 @@ class _ReviewsState extends State<Reviews> {
               ],
             ),
           ),
-        ));
+        ],
+      ),
+    ));
   }
 
   List<Widget> buildBooks(
@@ -356,27 +363,27 @@ class _ReviewsState extends State<Reviews> {
                       width: 5,
                     ),
                     const Icon(
-                      Icons.star,
+                      Iconsax.star1,
                       color: Colors.orange,
                       size: 12,
                     ),
                     const Icon(
-                      Icons.star,
+                      Iconsax.star1,
                       color: Colors.orange,
                       size: 12,
                     ),
                     const Icon(
-                      Icons.star,
+                      Iconsax.star1,
                       color: Colors.orange,
                       size: 12,
                     ),
                     const Icon(
-                      Icons.star,
+                      Iconsax.star1,
                       color: Colors.orange,
                       size: 12,
                     ),
                     Icon(
-                      Icons.star,
+                      Iconsax.star1,
                       color: Colors.grey.withOpacity(0.3),
                       size: 12,
                     ),

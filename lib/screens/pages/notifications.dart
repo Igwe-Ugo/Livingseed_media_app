@@ -159,9 +159,6 @@ Widget notify(
         maxLines: 3,
       ),
     ),
-    trailing: IconButton(
-      onPressed: () {},
-      icon: const Icon(Icons.arrow_forward_ios_outlined, size: 17),
-    ),
+    trailing: const Icon(Iconsax.arrow_right, size: 17),
   );
 }

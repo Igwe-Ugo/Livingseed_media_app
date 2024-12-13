@@ -35,19 +35,19 @@ class _LivingSeedResetForgottenPasswordState
                       'Change Password',
                       style: TextStyle(
                           fontFamily: 'Playfair',
-                          fontSize: 30,
+                          fontSize: 25,
                           fontWeight: FontWeight.bold),
                     ),
                   ),
                   const SizedBox(
-                    height: 10,
+                    height: 20,
                   ),
                   const Align(
                     alignment: Alignment.centerLeft,
                     child: Text(
                       'New password',
                       style:
-                          TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
+                          TextStyle(fontSize: 17, fontWeight: FontWeight.bold),
                     ),
                   ),
                   const SizedBox(
@@ -166,7 +166,7 @@ class _LivingSeedResetForgottenPasswordState
                   'Change your mind?',
                   style: TextStyle(
                     fontWeight: FontWeight.w500,
-                    fontSize: 20,
+                    fontSize: 17,
                   ),
                 ),
                 TextButton(
@@ -175,7 +175,7 @@ class _LivingSeedResetForgottenPasswordState
                   child: Text('Cancel',
                       style: TextStyle(
                           color: Theme.of(context).primaryColorDark,
-                          fontSize: 20,
+                          fontSize: 17,
                           fontWeight: FontWeight.w600)),
                 ),
               ],
@@ -200,7 +200,7 @@ class _LivingSeedResetForgottenPasswordState
                       'Change password',
                       style: TextStyle(
                           fontWeight: FontWeight.w700,
-                          fontSize: 20.0,
+                          fontSize: 17.0,
                           color: Colors.white),
                     ),
                   ),

@@ -15,32 +15,37 @@ class _ProfileState extends State<Profile> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        elevation: 0,
-        leading: IconButton(
-            onPressed: () {
-              GoRouter.of(context).pop();
-            },
-            icon: const Icon(
-              Icons.arrow_back_ios_new_outlined,
-              size: 17,
-            )),
-        title: const Align(
-          alignment: Alignment.center,
-          child: Text(
-            'Profile',
-            style: TextStyle(
-                fontWeight: FontWeight.bold,
-                fontSize: 16,
-                fontFamily: 'Playfair'),
-          ),
-        ),
-      ),
       body: SingleChildScrollView(
         child: Padding(
           padding: const EdgeInsets.all(20),
           child: Column(
             children: [
+              Row(
+                children: [
+                  IconButton(
+                      onPressed: () {
+                        GoRouter.of(context).pop();
+                      },
+                      icon: const Icon(
+                        Iconsax.arrow_left_2,
+                        size: 17,
+                      )),
+                  const SizedBox(
+                    width: 15,
+                  ),
+                  const Text(
+                    'Profile',
+                    style: TextStyle(
+                      fontFamily: 'Playfair',
+                      fontSize: 20,
+                      fontWeight: FontWeight.bold,
+                    ),
+                  ),
+                ],
+              ),
+              const SizedBox(
+                height: 20,
+              ),
               SizedBox(
                 width: double.infinity,
                 child: Column(

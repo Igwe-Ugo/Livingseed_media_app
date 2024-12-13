@@ -48,13 +48,24 @@ class _PublicationsPageState extends State<PublicationsPage> {
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
-                const Text(
-                  'Publications',
-                  style: TextStyle(
-                    fontFamily: 'Playfair',
-                    fontSize: 20,
-                    fontWeight: FontWeight.bold,
-                  ),
+                Row(
+                  children: [
+                    Image.asset(
+                      'assets/icons/LSeed-Logo-1.png',
+                      scale: 5,
+                    ),
+                    const SizedBox(
+                      width: 10,
+                    ),
+                    const Text(
+                      'Publications',
+                      style: TextStyle(
+                        fontFamily: 'Playfair',
+                        fontSize: 20,
+                        fontWeight: FontWeight.bold,
+                      ),
+                    ),
+                  ],
                 ),
                 Padding(
                   padding: const EdgeInsets.symmetric(horizontal: 8.0),
@@ -109,7 +120,7 @@ class _PublicationsPageState extends State<PublicationsPage> {
                 decoration: InputDecoration(
                   filled: true,
                   hintText: 'Search for title, authors, topics...',
-                  prefixIcon: const Icon(Iconsax.search_favorite_1),
+                  prefixIcon: const Icon(Iconsax.book_1),
                   border: OutlineInputBorder(
                     borderRadius: BorderRadius.circular(12),
                     borderSide: BorderSide.none,

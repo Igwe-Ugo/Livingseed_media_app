@@ -50,28 +50,17 @@ class _AudioMessagesState extends State<AudioMessages> {
                       : Theme.of(context).disabledColor.withOpacity(0.15),
                 ),
               ),
-              child: TextFormField(
-                keyboardType: TextInputType.emailAddress,
+              child: TextField(
                 controller: searchAudioController,
                 decoration: InputDecoration(
                   filled: true,
-                  fillColor: Theme.of(context).disabledColor.withOpacity(0.15),
-                  prefixIcon: const Icon(
-                    Iconsax.audio_square,
-                    size: 17,
+                  hintText: 'Search for messages...',
+                  prefixIcon: const Icon(Iconsax.audio_square),
+                  border: OutlineInputBorder(
+                    borderRadius: BorderRadius.circular(12),
+                    borderSide: BorderSide.none,
                   ),
-                  errorStyle: const TextStyle(
-                      fontSize: 15, fontWeight: FontWeight.w700),
-                  hintText: 'Search Audio',
-                  border: const OutlineInputBorder(
-                      borderSide: BorderSide.none,
-                      borderRadius: BorderRadius.all(Radius.circular(12))),
-                  hintStyle: TextStyle(
-                    color: Theme.of(context).brightness == Brightness.dark
-                        ? Colors.white
-                        : Theme.of(context).disabledColor,
-                    fontSize: 17,
-                  ),
+                  fillColor: Theme.of(context).disabledColor.withOpacity(0.2),
                 ),
               ),
             ),

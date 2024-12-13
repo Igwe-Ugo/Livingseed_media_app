@@ -25,96 +25,104 @@ class _AccountPageState extends State<AccountPage> {
       body: SingleChildScrollView(
         child: Column(
           children: [
-            CurveEdgesWidget(
-              child: Container(
-                color: Theme.of(context).primaryColor,
-                height: 200,
-                child: Column(
-                  children: [
-                    Padding(
-                      padding: const EdgeInsets.symmetric(
-                          vertical: 15, horizontal: 20),
-                      child: Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                        children: [
-                          const Text(
-                            'Account',
-                            style: TextStyle(
-                                fontFamily: 'Playfair',
-                                fontSize: 20,
-                                fontWeight: FontWeight.bold,
-                                color: Colors.white),
-                          ),
-                          Padding(
-                            padding:
-                                const EdgeInsets.symmetric(horizontal: 8.0),
-                            child: InkWell(
-                              onTap: () => GoRouter.of(context).go('${LivingSeedAppRouter.accountPath}/${LivingSeedAppRouter.notificationPath}'),
-                              child: Padding(
-                                padding: const EdgeInsets.all(10.0),
-                                child: Stack(
-                                  alignment: AlignmentDirectional.bottomEnd,
-                                  children: [
-                                    const Icon(
-                                      Iconsax.message,
-                                      color: Colors.white,
-                                    ),
-                                    Container(
-                                      padding: const EdgeInsets.all(4),
-                                      decoration: const BoxDecoration(
-                                        color: Colors.black,
-                                        shape: BoxShape.circle,
-                                      ),
-                                      child: const Text(
-                                        '2',
-                                        style: TextStyle(
-                                            fontSize: 10.0,
-                                            fontWeight: FontWeight.bold,
-                                            color: Colors.white),
-                                        textAlign: TextAlign.center,
-                                      ),
-                                    ),
-                                  ],
-                                ),
+            Padding(
+              padding: const EdgeInsets.symmetric(vertical: 15, horizontal: 20),
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  Row(
+                    children: [
+                      Image.asset(
+                        'assets/icons/LSeed-Logo-1.png',
+                        scale: 5,
+                      ),
+                      const SizedBox(
+                        width: 10,
+                      ),
+                      Text(
+                        'Account',
+                        style: TextStyle(
+                            fontFamily: 'Playfair',
+                            fontSize: 20,
+                            fontWeight: FontWeight.bold,
+                            color:
+                                Theme.of(context).brightness == Brightness.dark
+                                    ? Colors.white
+                                    : Colors.black),
+                      ),
+                    ],
+                  ),
+                  Padding(
+                    padding: const EdgeInsets.symmetric(horizontal: 8.0),
+                    child: InkWell(
+                      onTap: () => GoRouter.of(context).go(
+                          '${LivingSeedAppRouter.accountPath}/${LivingSeedAppRouter.notificationPath}'),
+                      child: Padding(
+                        padding: const EdgeInsets.all(10.0),
+                        child: Stack(
+                          alignment: AlignmentDirectional.bottomEnd,
+                          children: [
+                            Icon(Iconsax.message,
+                                color: Theme.of(context).brightness ==
+                                        Brightness.dark
+                                    ? Colors.white
+                                    : Colors.black),
+                            Container(
+                              padding: const EdgeInsets.all(4),
+                              decoration: BoxDecoration(
+                                color: Theme.of(context).primaryColor,
+                                shape: BoxShape.circle,
+                              ),
+                              child: const Text(
+                                '2',
+                                style: TextStyle(
+                                    fontSize: 10.0,
+                                    fontWeight: FontWeight.bold,
+                                    color: Colors.white),
+                                textAlign: TextAlign.center,
                               ),
                             ),
-                          )
-                        ],
+                          ],
+                        ),
                       ),
                     ),
-                    ListTile(
-                        leading: CircleAvatar(
-                          radius: 30,
-                          child: Image.asset('assets/images/profile.png'),
-                        ),
-                        title: const Text(
-                          'Nwamadi Elijah Chibuokem',
-                          style: TextStyle(
-                            fontWeight: FontWeight.bold,
-                            fontSize: 20,
-                            color: Colors.white,
-                          ),
-                        ),
-                        subtitle: const Text(
-                          'nwamadielijah1@gmail.com',
-                          style: TextStyle(
-                              fontWeight: FontWeight.w400,
-                              fontSize: 13,
-                              color: Colors.white),
-                        ),
-                        trailing: IconButton(
-                          onPressed: () => GoRouter.of(context).go(
-                              '${LivingSeedAppRouter.accountPath}/${LivingSeedAppRouter.profilePath}'),
-                          icon: const Icon(
-                            Iconsax.edit,
-                            size: 20,
-                          ),
-                          color: Colors.white,
-                        )),
-                  ],
-                ),
+                  )
+                ],
               ),
             ),
+            ListTile(
+                leading: CircleAvatar(
+                  radius: 30,
+                  child: Image.asset('assets/images/profile.png'),
+                ),
+                title: Text(
+                  'Nwamadi Elijah Chibuokem',
+                  style: TextStyle(
+                      fontWeight: FontWeight.bold,
+                      fontSize: 20,
+                      color: Theme.of(context).brightness == Brightness.dark
+                          ? Colors.white
+                          : Colors.black),
+                ),
+                subtitle: Text(
+                  'nwamadielijah1@gmail.com',
+                  style: TextStyle(
+                      fontWeight: FontWeight.w400,
+                      fontSize: 13,
+                      color: Theme.of(context).brightness == Brightness.dark
+                          ? Colors.white
+                          : Colors.black),
+                ),
+                trailing: IconButton(
+                    onPressed: () => GoRouter.of(context).go(
+                        '${LivingSeedAppRouter.accountPath}/${LivingSeedAppRouter.profilePath}'),
+                    icon: const Icon(
+                      Iconsax.edit,
+                      size: 20,
+                    ),
+                    color: Theme.of(context).brightness == Brightness.dark
+                        ? Colors.white
+                        : Colors.black)),
             Container(
               width: MediaQuery.of(context).size.width,
               padding: const EdgeInsets.all(10),

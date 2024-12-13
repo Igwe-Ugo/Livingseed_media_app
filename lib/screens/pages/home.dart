@@ -41,7 +41,7 @@ class HomePage extends StatelessWidget {
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
                     Text(
-                      'Welcome\nUser',
+                      'Welcome\nElijah Nwamadi',
                       style: TextStyle(
                         color: Theme.of(context).brightness == Brightness.dark
                             ? Colors.white
@@ -71,7 +71,7 @@ class HomePage extends StatelessWidget {
                   child: TextField(
                     decoration: InputDecoration(
                       filled: true,
-                      hintText: 'Search for books, videos, or songs...',
+                      hintText: 'Search for books, videos, or messages...',
                       prefixIcon: const Icon(Iconsax.search_favorite_1),
                       border: OutlineInputBorder(
                         borderRadius: BorderRadius.circular(12),
@@ -94,7 +94,19 @@ class HomePage extends StatelessWidget {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   // Books Section
-                  const SectionTitle(title: 'Books'),
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [
+                      const SectionTitle(title: 'Books'),
+                      TextButton(
+                        onPressed: () {},
+                        child: Text('More...',
+                            style: TextStyle(
+                              color: Theme.of(context).primaryColor,
+                            )),
+                      )
+                    ],
+                  ),
                   const SizedBox(height: 10),
                   HorizontalList(
                       items: List.generate(5, (index) => 'Book $index')),
@@ -102,7 +114,19 @@ class HomePage extends StatelessWidget {
                   const SizedBox(height: 20),
 
                   // Videos Section
-                  const SectionTitle(title: 'Video Messages'),
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [
+                      const SectionTitle(title: 'Video Messages'),
+                      TextButton(
+                        onPressed: () {},
+                        child: Text('More...',
+                            style: TextStyle(
+                              color: Theme.of(context).primaryColor,
+                            )),
+                      )
+                    ],
+                  ),
                   const SizedBox(height: 10),
                   HorizontalList(
                       items: List.generate(5, (index) => 'Video $index')),
@@ -110,7 +134,19 @@ class HomePage extends StatelessWidget {
                   const SizedBox(height: 20),
 
                   // Songs Section
-                  const SectionTitle(title: 'Audio Messaages'),
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [
+                      const SectionTitle(title: 'Audio Messages'),
+                      TextButton(
+                        onPressed: () {},
+                        child: Text('More...',
+                            style: TextStyle(
+                              color: Theme.of(context).primaryColor,
+                            )),
+                      )
+                    ],
+                  ),
                   const SizedBox(height: 10),
                   HorizontalList(
                       items: List.generate(5, (index) => 'Song $index')),
@@ -126,7 +162,7 @@ class HomePage extends StatelessWidget {
 
 class SectionTitle extends StatelessWidget {
   final String title;
-  const SectionTitle({Key? key, required this.title}) : super(key: key);
+  const SectionTitle({super.key, required this.title});
 
   @override
   Widget build(BuildContext context) {
@@ -143,7 +179,7 @@ class SectionTitle extends StatelessWidget {
 
 class HorizontalList extends StatelessWidget {
   final List<String> items;
-  const HorizontalList({Key? key, required this.items}) : super(key: key);
+  const HorizontalList({super.key, required this.items});
 
   @override
   Widget build(BuildContext context) {

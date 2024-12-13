@@ -151,109 +151,103 @@ class _CartState extends State<Cart> {
                 const SizedBox(
                   height: 15,
                 ),
-                ListView.builder(
-                  shrinkWrap: true,
-                  itemCount: numberOfItems,
-                  itemBuilder: (context, index) {
-                    return SizedBox(
-                      width: MediaQuery.of(context).size.width,
-                      child: Padding(
-                        padding: const EdgeInsets.symmetric(
-                            vertical: 5, horizontal: 10),
-                        child: Container(
-                          padding: const EdgeInsets.all(10),
-                          decoration: BoxDecoration(
-                            border: Border.all(
-                              color: Theme.of(context).brightness ==
-                                      Brightness.dark
-                                  ? Colors.white
-                                  : Theme.of(context)
-                                      .disabledColor
-                                      .withOpacity(0.5),
-                            ),
-                            borderRadius: BorderRadius.circular(10),
-                          ),
-                          child: Column(
-                            children: [
-                              Row(
-                                children: [
-                                  Container(
-                                    height: 100,
-                                    width: 100,
-                                    padding: const EdgeInsets.all(5),
-                                    decoration: BoxDecoration(
-                                      color: Colors.grey.withOpacity(0.1),
-                                      borderRadius: const BorderRadius.all(
-                                          Radius.circular(5)),
-                                    ),
-                                    child: Image.asset(
-                                      height: 100,
-                                      width: 100,
-                                      'assets/images/becoming_like_jesus.png',
-                                    ),
-                                  ),
-                                  const SizedBox(
-                                    width: 16,
-                                  ),
-                                  const Expanded(
-                                    child: Column(
-                                      mainAxisAlignment:
-                                          MainAxisAlignment.spaceBetween,
-                                      crossAxisAlignment:
-                                          CrossAxisAlignment.start,
-                                      children: [
-                                        Column(
-                                          crossAxisAlignment:
-                                              CrossAxisAlignment.start,
-                                          children: [
-                                            Text(
-                                              'Becoming like Jesus',
-                                              style: TextStyle(
-                                                  fontWeight: FontWeight.bold,
-                                                  fontSize: 16.0),
-                                            ),
-                                            Text(
-                                              'Gbile Akanni',
-                                              style: TextStyle(
-                                                  fontWeight: FontWeight.w500,
-                                                  fontSize: 14.0),
-                                            ),
-                                          ],
-                                        ),
-                                        SizedBox(
-                                          height: 8,
-                                        ),
-                                        Text(
-                                          'N 1000',
-                                          style: TextStyle(
-                                              fontWeight: FontWeight.bold,
-                                              fontSize: 13.0),
-                                        ),
-                                      ],
-                                    ),
-                                  ),
-                                ],
-                              ),
-                              ListTile(
-                                onTap: () => showRemoveItemDialog(context),
-                                leading: const Icon(Iconsax.trash),
-                                title: const Text('Remove from cart',
-                                    style: TextStyle(
-                                      fontSize: 15,
-                                      fontWeight: FontWeight.w600,
-                                    )),
-                              ),
-                            ],
-                          ),
-                        ),
-                      ),
-                    );
-                  },
+                Column(
+                  children: [
+                    _cartItems(context),
+                    _cartItems(context),
+                    _cartItems(context),
+                    _cartItems(context)
+                  ],
                 ),
               ],
             ),
           ),
         ));
+  }
+
+  SizedBox _cartItems(BuildContext context) {
+    return SizedBox(
+      width: MediaQuery.of(context).size.width,
+      child: Padding(
+        padding: const EdgeInsets.symmetric(vertical: 5, horizontal: 10),
+        child: Container(
+          padding: const EdgeInsets.all(10),
+          decoration: BoxDecoration(
+            border: Border.all(
+              color: Theme.of(context).brightness == Brightness.dark
+                  ? Colors.white
+                  : Theme.of(context).disabledColor.withOpacity(0.5),
+            ),
+            borderRadius: BorderRadius.circular(10),
+          ),
+          child: Column(
+            children: [
+              Row(
+                children: [
+                  Container(
+                    height: 100,
+                    width: 100,
+                    padding: const EdgeInsets.all(5),
+                    decoration: BoxDecoration(
+                      color: Colors.grey.withOpacity(0.1),
+                      borderRadius: const BorderRadius.all(Radius.circular(5)),
+                    ),
+                    child: Image.asset(
+                      height: 100,
+                      width: 100,
+                      'assets/images/becoming_like_jesus.png',
+                    ),
+                  ),
+                  const SizedBox(
+                    width: 16,
+                  ),
+                  const Expanded(
+                    child: Column(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            Text(
+                              'Becoming like Jesus',
+                              style: TextStyle(
+                                  fontWeight: FontWeight.bold, fontSize: 16.0),
+                            ),
+                            Text(
+                              'Gbile Akanni',
+                              style: TextStyle(
+                                  fontWeight: FontWeight.w500, fontSize: 14.0),
+                            ),
+                          ],
+                        ),
+                        SizedBox(
+                          height: 8,
+                        ),
+                        Text(
+                          'N 1000',
+                          style: TextStyle(
+                              fontWeight: FontWeight.bold, fontSize: 13.0),
+                        ),
+                      ],
+                    ),
+                  ),
+                ],
+              ),
+              ListTile(
+                onTap: () => showRemoveItemDialog(context),
+                leading: const Icon(Iconsax.trash),
+                title: const Text('Remove from cart',
+                    style: TextStyle(
+                      fontSize: 15,
+                      fontWeight: FontWeight.w600,
+                    )),
+              ),
+            ],
+          ),
+        ),
+      ),
+    );
   }
 }
 

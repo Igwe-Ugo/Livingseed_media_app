@@ -27,18 +27,30 @@ class _MessagesPageState extends State<MessagesPage> {
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
-                  const Text(
-                    'Messages',
-                    style: TextStyle(
-                      fontFamily: 'Playfair',
-                      fontSize: 20,
-                      fontWeight: FontWeight.bold,
-                    ),
+                  Row(
+                    children: [
+                      Image.asset(
+                        'assets/icons/LSeed-Logo-1.png',
+                        scale: 5,
+                      ),
+                      const SizedBox(
+                        width: 10,
+                      ),
+                      const Text(
+                        'Messages',
+                        style: TextStyle(
+                          fontFamily: 'Playfair',
+                          fontSize: 20,
+                          fontWeight: FontWeight.bold,
+                        ),
+                      ),
+                    ],
                   ),
                   Padding(
                     padding: const EdgeInsets.symmetric(horizontal: 8.0),
                     child: InkWell(
-                      onTap: () => GoRouter.of(context).go('${LivingSeedAppRouter.messagesPath}/${LivingSeedAppRouter.notificationPath}'),
+                      onTap: () => GoRouter.of(context).go(
+                          '${LivingSeedAppRouter.messagesPath}/${LivingSeedAppRouter.notificationPath}'),
                       child: Padding(
                         padding: const EdgeInsets.all(10.0),
                         child: Stack(
