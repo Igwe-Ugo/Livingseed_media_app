@@ -78,7 +78,7 @@ class _BooksPurchasedState extends State<BooksPurchased> {
             ...buildBooksPurchased(context, [
               {
                 'imagePath': 'assets/images/book_frame.png',
-                'date': '2012',
+                'date': '1905',
                 'title': 'Grace Abounding to the Chiefest of Sinners',
                 'author': 'John Bunyan',
                 'readBookPath': pdfAssetPath,
@@ -132,7 +132,7 @@ class _BooksPurchasedState extends State<BooksPurchased> {
                     alignment: Alignment.topCenter,
                     child: Container(
                       height: 100,
-                      width: 100,
+                      width: 70,
                       padding: const EdgeInsets.all(5),
                       decoration: BoxDecoration(
                         image: DecorationImage(

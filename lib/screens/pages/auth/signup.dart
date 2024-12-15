@@ -348,7 +348,7 @@ class _LivingSeedSignUpState extends State<LivingSeedSignUp> {
                       ),
                       ElevatedButton(
                         onPressed: () => GoRouter.of(context)
-                            .go(LivingSeedAppRouter.homePath),
+                            .go(LivingSeedAppRouter.verifyAccountPath),
                         style: ElevatedButton.styleFrom(
                           elevation: 0,
                           backgroundColor: Theme.of(context).primaryColor,

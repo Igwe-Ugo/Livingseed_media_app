@@ -1,17 +1,18 @@
 // ignore_for_file: use_build_context_synchronously
+
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:iconsax/iconsax.dart';
-import '../../common/widget.dart';
+import 'package:livingseed_media/screens/common/custom_route.dart';
 
-class VerifyAccount extends StatefulWidget {
-  const VerifyAccount({super.key});
+class ForgotPasswordOTP extends StatefulWidget {
+  const ForgotPasswordOTP({super.key});
 
   @override
-  State<VerifyAccount> createState() => _VerifyAccountState();
+  State<ForgotPasswordOTP> createState() => _ForgotPasswordOTPState();
 }
 
-class _VerifyAccountState extends State<VerifyAccount> {
+class _ForgotPasswordOTPState extends State<ForgotPasswordOTP> {
   bool hideOtp = true;
   String otpCode = '';
 
@@ -41,7 +42,7 @@ class _VerifyAccountState extends State<VerifyAccount> {
                     IconButton(
                         onPressed: () {
                           GoRouter.of(context)
-                              .go(LivingSeedAppRouter.signUpPath);
+                              .go(LivingSeedAppRouter.loginPath);
                         },
                         icon: const Icon(
                           Iconsax.arrow_left_2,
@@ -51,7 +52,7 @@ class _VerifyAccountState extends State<VerifyAccount> {
                       width: 15,
                     ),
                     const Text(
-                      'Verify Account',
+                      'Forgot Password',
                       style: TextStyle(
                         fontFamily: 'Playfair',
                         fontSize: 20,
@@ -69,7 +70,7 @@ class _VerifyAccountState extends State<VerifyAccount> {
                 style: TextStyle(fontSize: 20, fontWeight: FontWeight.w500),
               ),
               const Text(
-                'nwama****mail.com',
+                'nwamadi****mail.com',
                 style: TextStyle(fontSize: 20, fontWeight: FontWeight.w500),
               ),
               const SizedBox(
@@ -80,7 +81,7 @@ class _VerifyAccountState extends State<VerifyAccount> {
                 child: SizedBox(), //_getOtpEditor,
               ),
               Padding(
-                padding: const EdgeInsets.symmetric(horizontal: 130),
+                padding: const EdgeInsets.symmetric(horizontal: 110),
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
@@ -97,7 +98,6 @@ class _VerifyAccountState extends State<VerifyAccount> {
                         color: Theme.of(context).primaryColorDark,
                       ),
                     ),
-                    //TimeCounter(seconds: _seconds),
                   ],
                 ),
               ),
@@ -108,10 +108,10 @@ class _VerifyAccountState extends State<VerifyAccount> {
       persistentFooterButtons: [
         Column(
           children: [
-            const Row(
+            Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                Text(
+                const Text(
                   'Did\'nt get a code?',
                   style: TextStyle(
                     fontWeight: FontWeight.w500,
@@ -119,10 +119,10 @@ class _VerifyAccountState extends State<VerifyAccount> {
                   ),
                 ),
                 TextButton(
-                  onPressed: null, //_seconds > 0 ? null : () => _resendOtp(),
+                  onPressed: () {},
                   child: Text('Resend',
                       style: TextStyle(
-                          //color: _seconds > 0 ? Theme.of(context).dividerColor : Theme.of(context).primaryColorDark,
+                          color: Theme.of(context).primaryColor,
                           fontSize: 20,
                           fontWeight: FontWeight.w600)),
                 ),
@@ -132,13 +132,11 @@ class _VerifyAccountState extends State<VerifyAccount> {
                 padding:
                     const EdgeInsets.symmetric(horizontal: 10.0, vertical: 10),
                 child: ElevatedButton(
-                  onPressed: () {
-                    GoRouter.of(context).go(LivingSeedAppRouter.homePath);
-                  }, // _verifyOtp(context),
+                  onPressed: () => GoRouter.of(context)
+                      .go(LivingSeedAppRouter.forgotPasswordPath),
                   style: ElevatedButton.styleFrom(
                     elevation: 0,
-                    backgroundColor: Theme.of(context)
-                        .primaryColor, //_isOtpEmpty == false ? Theme.of(context).primaryColor : Theme.of(context).dividerColor,
+                    backgroundColor: Theme.of(context).primaryColor,
                     shape: RoundedRectangleBorder(
                       borderRadius: BorderRadius.circular(10),
                     ),
@@ -166,19 +164,15 @@ class _VerifyAccountState extends State<VerifyAccount> {
     );
   }
 
-  /* OtpTextField get _getOtpEditor{
+  /* OtpTextField get _getOtpEditor {
     return OtpTextField(
       obscureText: hideOtp,
       numberOfFields: 4,
-      cursorColor: Theme.of(context).primaryColor,
-      borderColor: Colors.grey,
-      focusedBorderColor: Theme.of(context).primaryColor,
-      showFieldAsBox: true, 
-      textStyle: const TextStyle(
-        fontSize: 20,
-        fontWeight: FontWeight.bold
-      ),
-      onSubmit: (String verificationCode){
+      enabledBorderColor: Theme.of(context).primaryColor,
+      disabledBorderColor: Colors.grey,
+      showFieldAsBox: true,
+      textStyle: const TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
+      onSubmit: (String verificationCode) {
         _checkOtpEmpty(verificationCode);
       },
     );

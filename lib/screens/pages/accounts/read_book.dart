@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_pdfview/flutter_pdfview.dart';
+import 'package:go_router/go_router.dart';
+import 'package:iconsax/iconsax.dart';
 
 class ReadBookPage extends StatefulWidget {
   final String bookPath;
@@ -18,39 +20,69 @@ class _ReadBookPageState extends State<ReadBookPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Stack(
+      body: Column(
         children: [
-          PDFView(
-            filePath: widget.bookPath,
-            autoSpacing: true,
-            enableSwipe: true,
-            nightMode: true,
-            swipeHorizontal: true,
-            onError: (e) {
-              debugPrint(e);
-            },
-            onRender: (pages) {
-              setState(() {
-                totalPages = pages!;
-                pdfReady = true;
-              });
-            },
-            onViewCreated: (PDFViewController vc) {
-              pdfViewController = vc;
-            },
-            onPageChanged: (page, total) {
-              setState(() {});
-            },
-            onPageError: (page, error) {
-              debugPrint(page as String?);
-              debugPrint(error as String?);
-            },
+          Padding(
+            padding: const EdgeInsets.all(8.0),
+            child: Row(
+              children: [
+                IconButton(
+                    onPressed: () {
+                      GoRouter.of(context).pop();
+                    },
+                    icon: const Icon(
+                      Iconsax.arrow_left_2,
+                      size: 17,
+                    )),
+                const SizedBox(
+                  width: 15,
+                ),
+                const Text(
+                  'Grace Abounding the Chiefest of sinners',
+                  style: TextStyle(
+                    fontFamily: 'Playfair',
+                    fontSize: 15,
+                    fontWeight: FontWeight.bold,
+                  ),
+                ),
+              ],
+            ),
           ),
-          !pdfReady
-              ? const Center(
-                  child: CircularProgressIndicator(),
-                )
-              : const Offstage()
+          Stack(
+            children: [
+              PDFView(
+                filePath: widget.bookPath,
+                autoSpacing: true,
+                enableSwipe: true,
+                nightMode: true,
+                swipeHorizontal: true,
+                onError: (e) {
+                  debugPrint(e);
+                },
+                onRender: (pages) {
+                  setState(() {
+                    totalPages = pages!;
+                    pdfReady = true;
+                  });
+                },
+                onViewCreated: (PDFViewController vc) {
+                  pdfViewController = vc;
+                },
+                onPageChanged: (page, total) {
+                  setState(() {});
+                },
+                onPageError: (page, error) {
+                  debugPrint(page as String?);
+                  debugPrint(error as String?);
+                },
+              ),
+              !pdfReady
+                  ? const Center(
+                      child: CircularProgressIndicator(),
+                    )
+                  : const Offstage()
+            ],
+          ),
         ],
       ),
       floatingActionButton: Row(

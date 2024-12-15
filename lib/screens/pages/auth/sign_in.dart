@@ -183,7 +183,7 @@ class _LivingSeedSignInState extends State<LivingSeedSignIn> {
                         alignment: Alignment.centerRight,
                         child: TextButton(
                           onPressed: () => GoRouter.of(context)
-                              .go(LivingSeedAppRouter.forgotPasswordPath),
+                              .go(LivingSeedAppRouter.forgotPasswordOtpPath),
                           child: Text(
                             'Forgot password?',
                             style: TextStyle(

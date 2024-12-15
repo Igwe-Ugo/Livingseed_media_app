@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:livingseed_media/screens/common/custom_bottomnav.dart';
 import 'package:livingseed_media/screens/pages/accounts/accounts.dart';
+import 'package:livingseed_media/screens/pages/auth/verify_account.dart';
 import 'package:livingseed_media/screens/pages/messages/library.dart';
 import 'package:livingseed_media/screens/pages/publications/publications.dart';
 import '../models/models.dart';
@@ -41,7 +42,9 @@ class LivingSeedAppRouter {
   static const String editAccountPath = 'editAccount';
   static const String loginPath = '/login';
   static const String signUpPath = '/signup';
+  static const String verifyAccountPath = '/verify_account';
   static const String forgotPasswordPath = '/forgot_password';
+  static const String forgotPasswordOtpPath = '/forgot_password_otp';
   static const String reviewsPath = 'reviews';
   static const String writeReviewPath = 'write_review';
   static const String videoMessagesPath = 'video_messages';
@@ -65,6 +68,14 @@ class LivingSeedAppRouter {
       GoRoute(
         path: forgotPasswordPath,
         builder: (context, state) => const LivingSeedResetForgottenPassword(),
+      ),
+      GoRoute(
+        path: forgotPasswordOtpPath,
+        builder: (context, state) => const ForgotPasswordOTP(),
+      ),
+      GoRoute(
+        path: verifyAccountPath,
+        builder: (context, state) => const VerifyAccount(),
       ),
       StatefulShellRoute.indexedStack(
           parentNavigatorKey: parentNavigatorKey,
