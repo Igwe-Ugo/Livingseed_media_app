@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
 import 'package:iconsax/iconsax.dart';
+
+import '../common/widget.dart';
 
 class HomePage extends StatelessWidget {
   const HomePage({super.key});
@@ -46,7 +49,7 @@ class HomePage extends StatelessWidget {
                         color: Theme.of(context).brightness == Brightness.dark
                             ? Colors.white
                             : Colors.black,
-                        fontSize: 20,
+                        fontSize: 18,
                         fontWeight: FontWeight.bold,
                         fontFamily: 'Playfair',
                       ),
@@ -109,7 +112,8 @@ class HomePage extends StatelessWidget {
                   ),
                   const SizedBox(height: 10),
                   HorizontalList(
-                      items: List.generate(5, (index) => 'Book $index')),
+                      imagePath: List.generate(5,
+                          (index) => 'assets/images/becoming_like_jesus.png')),
 
                   const SizedBox(height: 20),
 
@@ -129,7 +133,8 @@ class HomePage extends StatelessWidget {
                   ),
                   const SizedBox(height: 10),
                   HorizontalList(
-                      items: List.generate(5, (index) => 'Video $index')),
+                      imagePath: List.generate(5,
+                          (index) => 'assets/images/becoming_like_jesus.png')),
 
                   const SizedBox(height: 20),
 
@@ -149,7 +154,8 @@ class HomePage extends StatelessWidget {
                   ),
                   const SizedBox(height: 10),
                   HorizontalList(
-                      items: List.generate(5, (index) => 'Song $index')),
+                      imagePath: List.generate(5,
+                          (index) => 'assets/images/becoming_like_jesus.png')),
                 ],
               ),
             ),
@@ -178,16 +184,16 @@ class SectionTitle extends StatelessWidget {
 }
 
 class HorizontalList extends StatelessWidget {
-  final List<String> items;
-  const HorizontalList({super.key, required this.items});
+  final List<String> imagePath;
+  const HorizontalList({super.key, required this.imagePath});
 
   @override
   Widget build(BuildContext context) {
     return SizedBox(
-      height: 150,
+      height: 170,
       child: ListView.separated(
         scrollDirection: Axis.horizontal,
-        itemCount: items.length,
+        itemCount: imagePath.length,
         separatorBuilder: (context, index) => const SizedBox(width: 10),
         itemBuilder: (context, index) {
           return Container(
@@ -196,12 +202,16 @@ class HorizontalList extends StatelessWidget {
               color: Colors.grey[200],
               borderRadius: BorderRadius.circular(10),
             ),
-            child: Center(
-              child: Text(
-                items[index],
-                style:
-                    const TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
-                textAlign: TextAlign.center,
+            child: InkWell(
+              onTap: () => GoRouter.of(context).go(
+                  '${LivingSeedAppRouter.homePath}/${LivingSeedAppRouter.aboutBookPath}'),
+              child: Container(
+                height: 170,
+                decoration: BoxDecoration(
+                    borderRadius: const BorderRadius.all(Radius.circular(7)),
+                    color: Theme.of(context).canvasColor,
+                    image: DecorationImage(
+                        fit: BoxFit.fill, image: AssetImage(imagePath[index]))),
               ),
             ),
           );

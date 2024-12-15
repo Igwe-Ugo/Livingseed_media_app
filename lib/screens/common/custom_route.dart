@@ -49,6 +49,8 @@ class LivingSeedAppRouter {
   static const String changePasswordPath = 'change_password';
   static const String notificationPath = 'notifications';
   static const String profilePath = 'profile';
+  static const String booksPurchasedPath = 'book_purchased';
+  static const String readBookPath = 'read_book';
 
   LivingSeedAppRouter._internal() {
     final routes = <RouteBase>[
@@ -80,6 +82,10 @@ class LivingSeedAppRouter {
                         GoRoute(
                             path: notificationPath,
                             builder: (context, state) => const Notifications()),
+                        GoRoute(
+                          path: aboutBookPath,
+                          builder: (context, state) => const AboutBook(),
+                        )
                       ]),
                 ]),
             StatefulShellBranch(
@@ -151,6 +157,19 @@ class LivingSeedAppRouter {
                           path: editAccountPath,
                           builder: (context, state) => const Profile(),
                         ),
+                        GoRoute(
+                            path: booksPurchasedPath,
+                            builder: (context, state) => const BooksPurchased(),
+                            routes: [
+                              GoRoute(
+                                path: readBookPath,
+                                builder: (context, state) {
+                                  final data = state.extra as Map<String, dynamic>;
+                                  final String readBookPath = data['readBookPath'];
+                                  return ReadBookPage(bookPath: readBookPath);
+                                },
+                              ),
+                            ]),
                         GoRoute(
                           path: changePasswordPath,
                           builder: (context, state) => const ChangePassword(),
