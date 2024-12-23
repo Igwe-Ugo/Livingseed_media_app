@@ -157,7 +157,7 @@ class _AccountPageState extends State<AccountPage> {
                   ListTile(
                     onTap: () => GoRouter.of(context).go(
                         '${LivingSeedAppRouter.accountPath}/${LivingSeedAppRouter.booksPurchasedPath}'),
-                    leading: const Icon(Iconsax.money_recive),
+                    leading: const Icon(Icons.shopping_basket_outlined),
                     title: const Text(
                       'Book Purchased',
                       style:
@@ -170,6 +170,19 @@ class _AccountPageState extends State<AccountPage> {
                     leading: const Icon(Icons.download_outlined),
                     title: const Text(
                       'My Downloads',
+                      style:
+                          TextStyle(fontSize: 13, fontWeight: FontWeight.w700),
+                    ),
+                    trailing: const Icon(Icons.keyboard_arrow_right_outlined),
+                  ),
+                  ListTile(
+                    onTap: () {
+                      GoRouter.of(context).go(
+                          '${LivingSeedAppRouter.accountPath}/${LivingSeedAppRouter.dashboardPath}');
+                    },
+                    leading: const Icon(Icons.admin_panel_settings_outlined),
+                    title: const Text(
+                      'Admin',
                       style:
                           TextStyle(fontSize: 13, fontWeight: FontWeight.w700),
                     ),

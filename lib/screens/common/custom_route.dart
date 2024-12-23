@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:livingseed_media/screens/common/custom_bottomnav.dart';
 import 'package:livingseed_media/screens/pages/accounts/accounts.dart';
+import 'package:livingseed_media/screens/pages/admin/admin.dart';
 import 'package:livingseed_media/screens/pages/auth/verify_account.dart';
 import 'package:livingseed_media/screens/pages/messages/library.dart';
 import 'package:livingseed_media/screens/pages/publications/publications.dart';
@@ -54,6 +55,12 @@ class LivingSeedAppRouter {
   static const String profilePath = 'profile';
   static const String booksPurchasedPath = 'book_purchased';
   static const String readBookPath = 'read_book';
+
+  //admin pages
+  static const String uploadBookPath = 'upload_book_path';
+  static const String dashboardPath = 'dashboard';
+  static const String manageNotificationsPath = 'manage_notifications';
+  static const String manageUsersPath = 'manage_users';
 
   LivingSeedAppRouter._internal() {
     final routes = <RouteBase>[
@@ -157,6 +164,27 @@ class LivingSeedAppRouter {
                       path: accountPath,
                       builder: (context, state) => const AccountPage(),
                       routes: [
+                        // admin panel
+                        GoRoute(
+                            path: dashboardPath,
+                            builder: (context, state) => const AdminDashboard(),
+                            routes: [
+                              GoRoute(
+                                path: uploadBookPath,
+                                builder: (context, state) =>
+                                    const UploadBookScreen(),
+                              ),
+                              GoRoute(
+                                path: manageNotificationsPath,
+                                builder: (context, state) =>
+                                    const AdminNotifications(),
+                              ),
+                              GoRoute(
+                                path: manageUsersPath,
+                                builder: (context, state) =>
+                                    const AdminUserManagement(),
+                              ),
+                            ]),
                         GoRoute(
                             path: notificationPath,
                             builder: (context, state) => const Notifications()),
@@ -175,9 +203,9 @@ class LivingSeedAppRouter {
                               GoRoute(
                                 path: readBookPath,
                                 builder: (context, state) {
-                                  final data = state.extra as Map<String, dynamic>;
-                                  final String readBookPath = data['readBookPath'];
-                                  return ReadBookPage(bookPath: readBookPath);
+                                  /* final data = state.extra as Map<String, dynamic>;
+                                  final String readBookPath = data['readBookPath']; */
+                                  return const ReadBookPage();
                                 },
                               ),
                             ]),

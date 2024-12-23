@@ -34,6 +34,9 @@ dependencies:
   iconsax: ^0.0.8
   smart_auth: ^2.0.0
   path_provider: ^2.1.5
+  pdf: ^3.11.1
+  syncfusion_flutter_pdfviewer: ^28.1.33
+  file_picker: ^8.1.6
 
 dev_dependencies:
   flutter_test:

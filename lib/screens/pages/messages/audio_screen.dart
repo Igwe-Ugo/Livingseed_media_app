@@ -13,14 +13,16 @@ class AudioScreen extends StatefulWidget {
   State<AudioScreen> createState() => _AudioScreenState();
 }
 
-class _AudioScreenState extends State<AudioScreen> with SingleTickerProviderStateMixin{
+class _AudioScreenState extends State<AudioScreen>
+    with SingleTickerProviderStateMixin {
   late AnimationController iconController;
   bool isPlaying = false;
   double iconSize = 30.0;
   final AudioPlayer messagePlayer = AudioPlayer();
   Duration duration = Duration.zero;
   Duration position = Duration.zero;
-  final GlobalKey<DecibelNoiseMeterState> _decibelNoiseMeterKey = GlobalKey<DecibelNoiseMeterState>();
+  final GlobalKey<DecibelNoiseMeterState> _decibelNoiseMeterKey =
+      GlobalKey<DecibelNoiseMeterState>();
 
   // New variables for additional functionalities
   bool isShuffleOn = false;
@@ -40,7 +42,7 @@ class _AudioScreenState extends State<AudioScreen> with SingleTickerProviderStat
         duration = d ?? Duration.zero;
       });
     });
-    messagePlayer.positionStream.listen((p) { 
+    messagePlayer.positionStream.listen((p) {
       setState(() {
         position = p;
       });
@@ -49,12 +51,10 @@ class _AudioScreenState extends State<AudioScreen> with SingleTickerProviderStat
 
   void setupPlaylist() {
     // Assuming audioSongs is a list of AudioMessage objects
-    playlist = ConcatenatingAudioSource(
-      children: [
-        AudioSource.uri(Uri.parse(widget.audioSongs.audioUrl)),
-        // Add more AudioSource items if there are multiple songs
-      ]
-    );
+    playlist = ConcatenatingAudioSource(children: [
+      AudioSource.uri(Uri.parse(widget.audioSongs.audioUrl)),
+      // Add more AudioSource items if there are multiple songs
+    ]);
     loadMusic();
   }
 
@@ -81,10 +81,7 @@ class _AudioScreenState extends State<AudioScreen> with SingleTickerProviderStat
       SnackBar(
         content: Text(
           message,
-          style: const TextStyle(
-            color: Colors.white,
-            fontFamily: 'Playfair'
-          ),
+          style: const TextStyle(color: Colors.white, fontFamily: 'Playfair'),
         ),
         backgroundColor: Colors.black38,
       ),
@@ -156,10 +153,9 @@ class _AudioScreenState extends State<AudioScreen> with SingleTickerProviderStat
           child: Text(
             widget.audioSongs.title,
             style: const TextStyle(
-              fontWeight: FontWeight.bold,
-              fontSize: 16,
-              fontFamily: 'Playfair'
-            ),
+                fontWeight: FontWeight.bold,
+                fontSize: 16,
+                fontFamily: 'Playfair'),
           ),
         ),
       ),
@@ -167,10 +163,7 @@ class _AudioScreenState extends State<AudioScreen> with SingleTickerProviderStat
       body: Stack(
         fit: StackFit.expand,
         children: [
-          Image.asset(
-            widget.audioSongs.audioImage,
-            fit: BoxFit.cover
-          ),
+          Image.asset(widget.audioSongs.audioImage, fit: BoxFit.cover),
           const _BackgroundFIlter(),
           Padding(
             padding: const EdgeInsets.symmetric(horizontal: 15.0, vertical: 20),
@@ -178,13 +171,16 @@ class _AudioScreenState extends State<AudioScreen> with SingleTickerProviderStat
               mainAxisAlignment: MainAxisAlignment.end,
               children: [
                 DecibelNoiseMeter(key: _decibelNoiseMeterKey),
-                const SizedBox(height: 20,),
+                const SizedBox(
+                  height: 20,
+                ),
                 Slider(
                   min: 0,
                   max: duration.inMilliseconds.toDouble(),
                   value: position.inMilliseconds.toDouble(),
                   onChanged: (value) async {
-                    await messagePlayer.seek(Duration(milliseconds: value.toInt()));
+                    await messagePlayer
+                        .seek(Duration(milliseconds: value.toInt()));
                   },
                 ),
                 Padding(
@@ -201,7 +197,9 @@ class _AudioScreenState extends State<AudioScreen> with SingleTickerProviderStat
                   mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                   children: [
                     IconButton(
-                      icon: Icon(isShuffleOn ? Icons.shuffle_on_outlined : Icons.shuffle),
+                      icon: Icon(isShuffleOn
+                          ? Icons.shuffle_on_outlined
+                          : Icons.shuffle),
                       onPressed: toggleShuffle,
                     ),
                     IconButton(
@@ -217,11 +215,20 @@ class _AudioScreenState extends State<AudioScreen> with SingleTickerProviderStat
                       ),
                     ),
                     IconButton(
-                      icon: const Icon(Icons.skip_next),
+                      icon: Icon(
+                        Icons.skip_next,
+                        color: Theme.of(context).brightness == Brightness.dark
+                            ? Colors.white
+                            : Colors.black,
+                      ),
                       onPressed: playNext,
                     ),
                     IconButton(
-                      icon: Icon(loopMode == LoopMode.off ? Icons.repeat : (loopMode == LoopMode.one ? Icons.repeat_one : Icons.repeat)),
+                      icon: Icon(loopMode == LoopMode.off
+                          ? Icons.repeat
+                          : (loopMode == LoopMode.one
+                              ? Icons.repeat_one
+                              : Icons.repeat)),
                       onPressed: toggleLoopMode,
                     ),
                   ],
@@ -234,7 +241,7 @@ class _AudioScreenState extends State<AudioScreen> with SingleTickerProviderStat
     );
   }
 
-  String formatDuration(Duration duration){
+  String formatDuration(Duration duration) {
     String twoDigits(int n) => n.toString().padLeft(2, '0');
     final minutes = twoDigits(duration.inMinutes.remainder(60));
     final seconds = twoDigits(duration.inSeconds.remainder(60));
@@ -276,17 +283,20 @@ class _BackgroundFIlter extends StatelessWidget {
   Widget build(BuildContext context) {
     return ShaderMask(
       blendMode: BlendMode.dstOut,
-      shaderCallback: (rect){
+      shaderCallback: (rect) {
         return LinearGradient(
-          begin: Alignment.topCenter,
-          end: Alignment.bottomCenter,
-          colors: [
-            Colors.white,
-            Colors.white.withOpacity(0.5),
-            Colors.white.withOpacity(0.0)
-          ],
-          stops: const [0.0, 0.4, 0.6]
-        ).createShader(rect);
+            begin: Alignment.topCenter,
+            end: Alignment.bottomCenter,
+            colors: [
+              Colors.white,
+              Colors.white.withOpacity(0.5),
+              Colors.white.withOpacity(0.0)
+            ],
+            stops: const [
+              0.0,
+              0.4,
+              0.6
+            ]).createShader(rect);
       },
       child: Container(
         color: Theme.of(context).dialogBackgroundColor.withOpacity(0.7),

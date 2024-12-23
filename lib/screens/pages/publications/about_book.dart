@@ -145,226 +145,223 @@ class _AboutBookState extends State<AboutBook> {
               const SizedBox(
                 height: 15,
               ),
-              Align(
-                alignment: Alignment.centerLeft,
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    const Text(
-                      'Becoming like Jesus',
+              Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  const Text(
+                    'Becoming like Jesus',
+                    style: TextStyle(
+                      fontWeight: FontWeight.bold,
+                      fontSize: 20,
+                    ),
+                  ),
+                  Text(
+                    'Gbile Akanni',
+                    style: TextStyle(
+                      fontWeight: FontWeight.w800,
+                      fontSize: 16,
+                      color: Theme.of(context).disabledColor,
+                    ),
+                  ),
+                  const SizedBox(
+                    height: 10,
+                  ),
+                  Text(
+                    aboutPreface,
+                    style: const TextStyle(
+                      fontWeight: FontWeight.w500,
+                      fontSize: 15,
+                    ),
+                    maxLines: 5,
+                  ),
+                  const SizedBox(
+                    height: 10,
+                  ),
+                  Divider(
+                    thickness: 1,
+                    color: Theme.of(context).disabledColor.withOpacity(0.4),
+                  ),
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [
+                      Row(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: List.generate(5, (index) {
+                          return Icon(
+                            Iconsax.star1,
+                            color: stars[index]
+                                ? Colors.orange.withOpacity(0.5)
+                                : Colors.grey.withOpacity(0.2),
+                            size: 30,
+                          );
+                        }),
+                      ),
+                      const Text(
+                        '4.8',
+                        style: TextStyle(
+                          fontWeight: FontWeight.w600,
+                        ),
+                      )
+                    ],
+                  ),
+                  const SizedBox(
+                    height: 10,
+                  ),
+                  Align(
+                    alignment: Alignment.centerRight,
+                    child: TextButton(
+                      onPressed: () => GoRouter.of(context).go(
+                          '${LivingSeedAppRouter.publicationsPath}/${LivingSeedAppRouter.aboutBookPath}/${LivingSeedAppRouter.reviewsPath}'),
+                      child: Text(
+                        'See Reviews',
+                        style: TextStyle(
+                          fontSize: 13,
+                          color: Theme.of(context).primaryColor,
+                        ),
+                      ),
+                    ),
+                  ),
+                  Divider(
+                    thickness: 1,
+                    color: Theme.of(context).disabledColor.withOpacity(0.4),
+                  ),
+                  const SizedBox(
+                    height: 20,
+                  ),
+                  const Text("What's it about?",
                       style: TextStyle(
                         fontWeight: FontWeight.bold,
                         fontSize: 20,
-                      ),
+                      )),
+                  const SizedBox(
+                    height: 10,
+                  ),
+                  Text(
+                    aboutBook,
+                    style: const TextStyle(
+                      fontWeight: FontWeight.w500,
                     ),
-                    Text(
-                      'Gbile Akanni',
-                      style: TextStyle(
-                        fontWeight: FontWeight.w800,
-                        fontSize: 16,
-                        color: Theme.of(context).disabledColor,
-                      ),
-                    ),
-                    const SizedBox(
-                      height: 10,
-                    ),
-                    Text(
-                      aboutPreface,
-                      style: const TextStyle(
-                        fontWeight: FontWeight.w500,
-                        fontSize: 15,
-                      ),
-                      maxLines: 5,
-                    ),
-                    const SizedBox(
-                      height: 10,
-                    ),
-                    Divider(
-                      thickness: 1,
-                      color: Theme.of(context).disabledColor.withOpacity(0.4),
-                    ),
-                    Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                      children: [
-                        Row(
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          children: List.generate(5, (index) {
-                            return Icon(
-                              Iconsax.star1,
-                              color: stars[index]
-                                  ? Colors.orange.withOpacity(0.5)
-                                  : Colors.grey.withOpacity(0.2),
-                              size: 30,
-                            );
-                          }),
-                        ),
-                        const Text(
-                          '4.8',
-                          style: TextStyle(
-                            fontWeight: FontWeight.w600,
-                          ),
-                        )
-                      ],
-                    ),
-                    const SizedBox(
-                      height: 10,
-                    ),
-                    Align(
-                      alignment: Alignment.centerRight,
-                      child: TextButton(
-                        onPressed: () => GoRouter.of(context).go(
-                            '${LivingSeedAppRouter.publicationsPath}/${LivingSeedAppRouter.aboutBookPath}/${LivingSeedAppRouter.reviewsPath}'),
-                        child: Text(
-                          'See Reviews',
-                          style: TextStyle(
-                            fontSize: 13,
+                    maxLines: more == false ? 5 : 30,
+                    textAlign: TextAlign.justify,
+                  ),
+                  Align(
+                    alignment: Alignment.centerRight,
+                    child: TextButton(
+                      onPressed: () {
+                        setState(() {
+                          more = !more;
+                        });
+                      },
+                      child: Text(
+                        more == false ? 'see more...' : 'see less...',
+                        style: TextStyle(
                             color: Theme.of(context).primaryColor,
-                          ),
-                        ),
+                            fontSize: 13),
                       ),
                     ),
-                    Divider(
-                      thickness: 1,
-                      color: Theme.of(context).disabledColor.withOpacity(0.4),
-                    ),
-                    const SizedBox(
-                      height: 20,
-                    ),
-                    const Text("What's it about?",
-                        style: TextStyle(
-                          fontWeight: FontWeight.bold,
-                          fontSize: 20,
-                        )),
-                    const SizedBox(
-                      height: 10,
-                    ),
-                    Text(
-                      aboutBook,
+                  ),
+                  const SizedBox(
+                    height: 20,
+                  ),
+                  const Text("Who's it about?",
+                      style: TextStyle(
+                        fontWeight: FontWeight.bold,
+                        fontSize: 20,
+                      )),
+                  const SizedBox(
+                    height: 10,
+                  ),
+                  Text(whoseAbout,
                       style: const TextStyle(
                         fontWeight: FontWeight.w500,
-                      ),
-                      maxLines: more == false ? 5 : 30,
-                      textAlign: TextAlign.justify,
+                      )),
+                  const SizedBox(
+                    height: 25,
+                  ),
+                  const Text(
+                    'Have 12 Chapters',
+                    style: TextStyle(
+                      fontWeight: FontWeight.bold,
+                      fontSize: 20,
                     ),
-                    Align(
-                      alignment: Alignment.centerRight,
-                      child: TextButton(
-                        onPressed: () {
-                          setState(() {
-                            more = !more;
-                          });
-                        },
-                        child: Text(
-                          more == false ? 'see more...' : 'see less...',
-                          style: TextStyle(
-                              color: Theme.of(context).primaryColor,
-                              fontSize: 13),
+                  ),
+                  const SizedBox(
+                    height: 10,
+                  ),
+                  ListView.builder(
+                    shrinkWrap: true,
+                    itemCount: chapters.length,
+                    itemBuilder: ((context, index) {
+                      return Container(
+                        margin: const EdgeInsets.all(7),
+                        decoration: BoxDecoration(
+                          border: Border.all(
+                            color:
+                                Theme.of(context).brightness == Brightness.dark
+                                    ? Colors.white
+                                    : Theme.of(context)
+                                        .disabledColor
+                                        .withOpacity(0.5),
+                          ),
+                          borderRadius: BorderRadius.circular(10),
                         ),
-                      ),
+                        child: Padding(
+                          padding: const EdgeInsets.symmetric(
+                              vertical: 13.0, horizontal: 10),
+                          child: Text(
+                            chapters[index],
+                            style: const TextStyle(
+                                fontWeight: FontWeight.w500, fontSize: 17),
+                          ),
+                        ),
+                      );
+                    }),
+                  ),
+                  const SizedBox(
+                    height: 20,
+                  ),
+                  const Text(
+                    "Who is the author?",
+                    style: TextStyle(
+                      fontWeight: FontWeight.bold,
+                      fontSize: 20,
                     ),
-                    const SizedBox(
-                      height: 20,
-                    ),
-                    const Text("Who's it about?",
-                        style: TextStyle(
-                          fontWeight: FontWeight.bold,
-                          fontSize: 20,
-                        )),
-                    const SizedBox(
-                      height: 10,
-                    ),
-                    Text(whoseAbout,
-                        style: const TextStyle(
-                          fontWeight: FontWeight.w500,
-                        )),
-                    const SizedBox(
-                      height: 25,
-                    ),
-                    const Text(
-                      'Have 12 Chapters',
+                    textAlign: TextAlign.justify,
+                  ),
+                  const SizedBox(
+                    height: 10,
+                  ),
+                  Text(aboutAuthor,
+                      style: const TextStyle(
+                        fontWeight: FontWeight.w500,
+                      )),
+                  const SizedBox(
+                    height: 25,
+                  ),
+                  const Text("Recommended for you",
                       style: TextStyle(
                         fontWeight: FontWeight.bold,
                         fontSize: 20,
-                      ),
-                    ),
-                    const SizedBox(
-                      height: 10,
-                    ),
-                    ListView.builder(
-                      itemCount: chapters.length,
-                      shrinkWrap: true,
-                      itemBuilder: ((context, index) {
-                        return Container(
-                          margin: const EdgeInsets.all(7),
-                          decoration: BoxDecoration(
-                            border: Border.all(
-                              color: Theme.of(context).brightness ==
-                                      Brightness.dark
-                                  ? Colors.white
-                                  : Theme.of(context)
-                                      .disabledColor
-                                      .withOpacity(0.5),
-                            ),
-                            borderRadius: BorderRadius.circular(10),
+                      )),
+                  const SizedBox(
+                    height: 20,
+                  ),
+                  const SingleChildScrollView(
+                      scrollDirection: Axis.horizontal,
+                      child: Row(
+                        children: [
+                          BooksPage(),
+                          SizedBox(
+                            width: 10,
                           ),
-                          child: Padding(
-                            padding: const EdgeInsets.symmetric(
-                                vertical: 13.0, horizontal: 10),
-                            child: Text(
-                              chapters[index],
-                              style: const TextStyle(
-                                  fontWeight: FontWeight.w500, fontSize: 17),
-                            ),
+                          BooksPage(),
+                          SizedBox(
+                            width: 10,
                           ),
-                        );
-                      }),
-                    ),
-                    const SizedBox(
-                      height: 20,
-                    ),
-                    const Text(
-                      "Who is the author?",
-                      style: TextStyle(
-                        fontWeight: FontWeight.bold,
-                        fontSize: 20,
-                      ),
-                      textAlign: TextAlign.justify,
-                    ),
-                    const SizedBox(
-                      height: 10,
-                    ),
-                    Text(aboutAuthor,
-                        style: const TextStyle(
-                          fontWeight: FontWeight.w500,
-                        )),
-                    const SizedBox(
-                      height: 25,
-                    ),
-                    const Text("Recommended for you",
-                        style: TextStyle(
-                          fontWeight: FontWeight.bold,
-                          fontSize: 20,
-                        )),
-                    const SizedBox(
-                      height: 20,
-                    ),
-                    const SingleChildScrollView(
-                        scrollDirection: Axis.horizontal,
-                        child: Row(
-                          children: [
-                            BooksPage(),
-                            SizedBox(
-                              width: 10,
-                            ),
-                            BooksPage(),
-                            SizedBox(
-                              width: 10,
-                            ),
-                            BooksPage(),
-                          ],
-                        )),
-                  ],
-                ),
+                          BooksPage(),
+                        ],
+                      )),
+                ],
               ),
             ],
           ),

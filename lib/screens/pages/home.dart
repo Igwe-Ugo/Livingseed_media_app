@@ -54,9 +54,12 @@ class HomePage extends StatelessWidget {
                         fontFamily: 'Playfair',
                       ),
                     ),
-                    CircleAvatar(
-                      radius: 20,
-                      child: Image.asset('assets/images/profile.png'),
+                    InkWell(
+                      onTap: () => GoRouter.of(context).go(LivingSeedAppRouter.dashboardPath),
+                      child: CircleAvatar(
+                        radius: 20,
+                        child: Image.asset('assets/images/profile.png'),
+                      ),
                     ),
                   ],
                 ),
